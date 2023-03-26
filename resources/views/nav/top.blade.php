@@ -18,7 +18,7 @@
         <ul class="navbar-nav">
             <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
                 <h1 class="welcome-text">Selamat Datang, <span
-                        class="text-black fw-bold">{{ Auth::user()->name }}</span></h1>
+                        class="text-black fw-bold">{{ Auth::user()->pemilik_nama }}</span></h1>
             </li>
         </ul>
         <ul class="navbar-nav ms-auto">
@@ -121,11 +121,9 @@
                     <div class="dropdown-header text-center">
                         <img class="img-md rounded-circle" src="{{ asset('template/images/faces/face10.jpg') }}"
                             alt="Profile image">
-                        {{-- <p class="mb-1 mt-3 font-weight-semibold">Wibby Prayogo</p>
-                        <p class="fw-light text-muted mb-0">wibbyprayogo@gmail.com</p> --}}
                     </div>
 
-                    {{-- <a class="dropdown-item"><i
+                    <!-- <a class="dropdown-item"><i
                             class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My
                         Profile <span class="badge badge-pill badge-danger">1</span></a>
                     <a class="dropdown-item"><i
@@ -136,8 +134,8 @@
                         Activity</a>
                     <a class="dropdown-item"><i
                             class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i>
-                        FAQ</a> --}}
-                    <form method="POST" action="{{ route('logout') }}">
+                        FAQ</a> -->
+                    <!-- <form method="POST" action="{{ route('logout') }}">
                         @csrf
 
                         <a class="dropdown-item href="route('logout')"
@@ -145,8 +143,12 @@
                                             this.closest('form').submit();">
                             {{ __('Log Out') }}
                         </a>
+                    </form> -->
+                    <!-- Authentication -->
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <center><button class="btn btn-danger btn-sm mt-2" type="submit">Keluar</button></center>
                     </form>
-                    {{-- <a class="dropdown-item"></a> --}}
                 </div>
             </li>
         </ul>

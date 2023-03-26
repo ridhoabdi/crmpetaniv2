@@ -15,7 +15,7 @@
     <div class="row align-items-center min-vh-75 min-vh-lg-100">
       <div class="col-md-7 col-lg-6 col-xxl-5 py-6 text-sm-start text-center">
         <h1 class="mt-6 mb-sm-4 fw-semi-bold lh-sm fs-4 fs-lg-5 fs-xl-6">Petani 4.0 <br class="d-block d-lg-block" />Petani Bawang Merah Indonesia</h1>
-        <p class="mb-4 fs-1">Aplikasi Petani Bawang Merah Indonesia dan terkoneksi dengan Internet Of Things Pertama diindonesia</p><a class="btn btn-lg btn-success" href="#" role="button">Gabung Sekarang</a>
+        <p class="mb-4 fs-1">Aplikasi Petani Bawang Merah Indonesia yang terkoneksi dengan Artificial Intelligence dan Internet of Things Pertama  di Indonesia</p><a class="btn btn-lg btn-success" href="{{ route('register') }}" role="button">Gabung Sekarang</a>
       </div>
     </div>
   </div>
