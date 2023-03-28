@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lokasisawah;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LokasisawahController extends Controller
 {
@@ -13,7 +15,14 @@ class LokasisawahController extends Controller
      */
     public function index()
     {
-        //
+        $user_id = auth()->user()->id;
+        $lokasisawahs = Lokasisawah::where('user_id', $user_id)
+            ->join('kabupatens', 'kabupatens.id', '=', 'lokasisawahs.kabupaten_id')
+            ->select('lokasisawahs.*', 'kabupatens.kabupaten_nama')
+            ->get();
+
+        // return dd($lokasisawahs);
+        return view('/pages/lokasisawah/viewlokasisawah', compact('lokasisawahs'));
     }
 
     /**
@@ -23,7 +32,11 @@ class LokasisawahController extends Controller
      */
     public function create()
     {
-        //
+        $user_id = auth()->user()->id;
+        $kabupatens = DB::table('kabupatens')->orderBy('kabupaten_nama', 'ASC')->get();
+        $data['kabupatens'] = $kabupatens;
+        // return dd($data);
+        return view('pages/lokasisawah/addlokasisawah', $data);
     }
 
     /**
@@ -34,7 +47,21 @@ class LokasisawahController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'kabupaten_id' => 'required|exists:kabupatens,id'
+        ], [
+            'kabupaten_id' => '*Field ini wajib diisi'
+        ]);
+
+        $lokasisawahs = Lokasisawah::create([
+            'user_id' => auth()->user()->id,
+            'lokasisawah_latitude' => $request->lokasisawah_latitude,
+            'lokasisawah_longitude' => $request->lokasisawah_longitude,
+            'kabupaten_id' => $request->kabupaten_id,
+            'lokasisawah_keterangan' => $request->lokasisawah_keterangan,
+        ]);
+
+        return redirect('/viewlokasisawah')->with('success', 'Data berhasil disimpan');
     }
 
     /**
@@ -45,7 +72,7 @@ class LokasisawahController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -56,7 +83,21 @@ class LokasisawahController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user_id = auth()->user()->id;
+
+        $lokasisawahs = Lokasisawah::where('user_id', $user_id)
+            ->find($id);
+    
+        if (!$lokasisawahs) {
+            return redirect('/viewlokasisawah')->with('error', 'Data tidak ditemukan');
+        }
+    
+        $kabupatens = DB::table('kabupatens')->orderBy('kabupaten_nama', 'ASC')->get();
+        $data['kabupatens'] = $kabupatens;
+        $data['lokasisawahs'] = $lokasisawahs;
+        
+        // return dd($data);
+        return view('pages/lokasisawah/editlokasisawah', $data);
     }
 
     /**
@@ -68,7 +109,26 @@ class LokasisawahController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $lokasisawahs = Lokasisawah::where('id', $id)->where('user_id', auth()->user()->id)->first();
+
+        if (!$lokasisawahs) {
+            return redirect('/viewlokasisawah')->with('error', 'Data tidak ditemukan');
+        }
+
+        $request->validate([
+            'kabupaten_id' => 'required|exists:kabupatens,id'
+        ], [
+            'kabupaten_id' => '*Field ini wajib diisi'
+        ]);
+
+        $lokasisawahs->update([
+            'lokasisawah_latitude' => $request->lokasisawah_latitude,
+            'lokasisawah_longitude' => $request->lokasisawah_longitude,
+            'kabupaten_id' => $request->kabupaten_id,
+            'lokasisawah_keterangan' => $request->lokasisawah_keterangan,
+        ]);
+
+        return redirect('/viewlokasisawah')->with('success', 'Data berhasil diedit');
     }
 
     /**
@@ -79,6 +139,13 @@ class LokasisawahController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $lokasisawahs = Lokasisawah::find($id);
+
+        if (!$lokasisawahs) {
+            return redirect('/viewlokasisawah')->with('error', 'Data tidak ditemukan');
+        }
+
+        $lokasisawahs->delete();
+        return redirect('/viewlokasisawah')->with('success', 'Data berhasil dihapus');
     }
 }

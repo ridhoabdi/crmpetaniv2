@@ -13,9 +13,9 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ url('/pages/Profil') }}">
+            <a class="nav-link" href="{{ url('/viewlokasisawah/') }}">
                 <i class="menu-icon mdi mdi-map-marker"></i>
-                <span class="menu-title">Lokasi</span>
+                <span class="menu-title">Lokasi Sawah</span>
             </a>
         </li>
         <li class="nav-item">
@@ -43,19 +43,19 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ url('/pages/pestisida') }}">
                 <i class="menu-icon mdi mdi-spray"></i>
-                <span class="menu-title">Data Pestisida</span>
+                <span class="menu-title">Kegiatan Pestisida</span>
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{ url('/pages/pupuk') }}">
                 <i class="menu-icon mdi mdi-chemical-weapon"></i>
-                <span class="menu-title">Data Pupuk</span>
+                <span class="menu-title">Kegiatan Pupuk</span>
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{ url('/pages/panen') }}">
                 <i class="menu-icon mdi mdi-sack"></i>
-                <span class="menu-title">Data Panen</span>
+                <span class="menu-title">Kegiatan Panen</span>
             </a>
         </li>
         <li class="nav-item">
