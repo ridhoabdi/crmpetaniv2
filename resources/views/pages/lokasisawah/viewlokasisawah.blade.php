@@ -14,11 +14,23 @@
     }, 3000); // menampilkan notifikasi selama 3 detik
 </script>
 
+@if (session('error'))
+    <div id="error-alert" class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+
+<script>
+    setTimeout(function() {
+        $('#error-alert').fadeOut('slow');
+    }, 5000); // menampilkan notifikasi selama 5 detik
+</script>
+
 <div class="card p-3 shadow-sm">
     <div class="card-header">
         <h5 class="card-title">Data Lokasi Sawah</h5>
         <a href="/addlokasisawah" class="btn btn-sm btn-outline-success mt-1">
-            <i class="menu-icon mdi mdi-plus"></i> Tambah
+            <i class="menu-icon mdi mdi-plus"></i> Tambah data Lokasi Sawah
         </a>
     </div>
     <ul class="list-group mt-3">

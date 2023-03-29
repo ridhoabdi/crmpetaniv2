@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KegiatansawahController;
 use App\Http\Controllers\LokasisawahController;
 use App\Http\Controllers\pendaftaranController;
 use App\Http\Controllers\ProfileController;
@@ -39,6 +40,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/editlokasisawah/{id}', [LokasisawahController::class, 'edit'])->name('editlokasisawah');
     Route::put('/updatelokasisawah/{id}', [LokasisawahController::class, 'update']);
     Route::delete('/deletelokasisawah/{id}', [LokasisawahController::class, 'destroy']);
+
+    // Kegiatan sawah
+    Route::get('/viewkegiatansawah', [KegiatansawahController::class, 'index'])->name('viewkegiatansawah');
+    // Route::get('/responlokasisawah', [KegiatansawahController::class, 'showResponLokasi'])->name('responlokasisawah');
         
 });
 

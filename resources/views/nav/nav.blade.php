@@ -35,7 +35,7 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ url('/pages/pemprosesan') }}">
+            <a class="nav-link" href="{{ url('/viewkegiatansawah/') }}">
                 <i class="menu-icon mdi mdi-leaf"></i>
                 <span class="menu-title">Penanaman Bawang</span>
             </a>

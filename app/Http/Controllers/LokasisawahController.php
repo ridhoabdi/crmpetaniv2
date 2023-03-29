@@ -47,21 +47,35 @@ class LokasisawahController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'kabupaten_id' => 'required|exists:kabupatens,id'
-        ], [
-            'kabupaten_id' => '*Field ini wajib diisi'
-        ]);
+        // Menginputkan data hanya 1 kali
 
-        $lokasisawahs = Lokasisawah::create([
-            'user_id' => auth()->user()->id,
-            'lokasisawah_latitude' => $request->lokasisawah_latitude,
-            'lokasisawah_longitude' => $request->lokasisawah_longitude,
-            'kabupaten_id' => $request->kabupaten_id,
-            'lokasisawah_keterangan' => $request->lokasisawah_keterangan,
-        ]);
+        $user_id = auth()->user()->id;
 
-        return redirect('/viewlokasisawah')->with('success', 'Data berhasil disimpan');
+        // Cek jumlah data lokasi yang dimiliki oleh user
+        $lokasi_count = Lokasisawah::where('user_id', $user_id)->count();
+
+        // Jika jumlah data kurang dari atau sama dengan 1, simpan data
+        if ($lokasi_count < 1) {
+            $request->validate([
+                'kabupaten_id' => 'required|exists:kabupatens,id'
+            ], [
+                'kabupaten_id' => '*Field ini wajib diisi'
+            ]);
+
+            $lokasisawahs = Lokasisawah::create([
+                'user_id' => $user_id,
+                'lokasisawah_latitude' => $request->lokasisawah_latitude,
+                'lokasisawah_longitude' => $request->lokasisawah_longitude,
+                'kabupaten_id' => $request->kabupaten_id,
+                'lokasisawah_keterangan' => $request->lokasisawah_keterangan,
+            ]);
+
+            return redirect('/viewlokasisawah')->with('success', 'Data berhasil disimpan');
+            
+        } else {
+            // Jika jumlah data lebih dari 1, tampilkan pesan error
+            return redirect('/viewlokasisawah')->with('error', 'Maaf, Anda hanya dapat menambahkan 1 lokasi sawah');
+        }
     }
 
     /**
