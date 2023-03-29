@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Lokasisawah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 
 class KegiatansawahController extends Controller
@@ -21,7 +22,15 @@ class KegiatansawahController extends Controller
         if (!$lokasisawahs) {
             return view('/pages/respon/responlokasisawah');
         } else {
-            return view('/pages/kegiatansawah/viewkegiatansawah');
+            $kegiatansawahs = DB::table('kegiatansawahs')
+                ->join('lokasisawahs', 'kegiatansawahs.lokasisawah_id', '=', 'lokasisawahs.id')
+                ->join('kabupatens', 'lokasisawahs.kabupaten_id', '=', 'kabupatens.id')
+                ->select('kegiatansawahs.*', 'kabupatens.kabupaten_nama', 'lokasisawahs.lokasisawah_keterangan')
+                ->where('kegiatansawahs.user_id', $user_id)
+                ->get();
+
+            // return dd($kegiatansawahs);
+            return view('/pages/kegiatansawah/viewkegiatansawah', compact('kegiatansawahs'));
         }
     }
 

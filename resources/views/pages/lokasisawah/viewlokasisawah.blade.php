@@ -28,9 +28,9 @@
 
 <div class="card p-3 shadow-sm">
     <div class="card-header">
-        <h5 class="card-title">Data Lokasi Sawah</h5>
+        <h5>Data Lokasi Sawah</h5>
         <a href="/addlokasisawah" class="btn btn-sm btn-outline-success mt-1">
-            <i class="menu-icon mdi mdi-plus"></i> Tambah data Lokasi Sawah
+            <i class="menu-icon mdi mdi-plus"></i> Tambah data
         </a>
     </div>
     <ul class="list-group mt-3">
