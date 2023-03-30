@@ -29,7 +29,7 @@
 <div class="card p-3 shadow-sm">
     <div class="card-header">
         <h5>Data Kegiatan Penanaman Bawang</h5>
-        <a href="#" class="btn btn-sm btn-outline-success mt-1">
+        <a href="/addkegiatansawah" class="btn btn-sm btn-outline-success mt-1">
             <i class="menu-icon mdi mdi-plus"></i> Tambah data
         </a>
     </div>
@@ -49,15 +49,20 @@
                             </tr>
                             <tr>
                                 <th style="width: 180px;">Jumlah Bibit</th>
-                                <td>{{ $kegiatansawah->ks_jumlah_bibit}} kg</td>
+                                <td>{{ number_format($kegiatansawah->ks_jumlah_bibit, 0, ',', '.') }} kg</td>
                             </tr>
                             <tr>
                                 <th style="width: 180px;">Luas Lahan</th>
-                                <td>{{ $kegiatansawah->ks_luas_lahan}} m<sup>2</sup></td>
+                                <td>{{ number_format($kegiatansawah->ks_luas_lahan, 0, ',', '.') }} m<sup>2</sup></td>
+
                             </tr>
                             <tr>
                                 <th style="width: 180px;">Status Lahan</th>
                                 <td>{{ $kegiatansawah->ks_status_lahan}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 180px;">Sumber Modal</th>
+                                <td>{{ $kegiatansawah->ks_sumber_modal}}</td>
                             </tr>
                             <tr>
                                 <th style="width: 180px;">Jumlah Modal</th>

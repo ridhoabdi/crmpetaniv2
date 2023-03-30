@@ -43,7 +43,8 @@ Route::middleware('auth')->group(function () {
 
     // Kegiatan sawah
     Route::get('/viewkegiatansawah', [KegiatansawahController::class, 'index'])->name('viewkegiatansawah');
-    // Route::get('/responlokasisawah', [KegiatansawahController::class, 'showResponLokasi'])->name('responlokasisawah');
+    Route::get('/addkegiatansawah', [KegiatansawahController::class, 'create'])->name('addkegiatansawah');
+    Route::post('/storekegiatansawah', [KegiatansawahController::class, 'store']);
         
 });
 

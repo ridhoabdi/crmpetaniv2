@@ -24,7 +24,7 @@ return new class extends Migration
             $table->date('ks_waktu_tanam');
             $table->string('ks_status_lahan');
             $table->float('ks_jumlah_modal');
-            $table->integer('ks_panen');
+            $table->integer('ks_panen')->nullable();
             $table->timestamps();
         });
     }
