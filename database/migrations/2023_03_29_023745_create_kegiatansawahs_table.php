@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('kegiatansawahs', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('lokasisawah_id');
+            $table->bigInteger('user_id');
+            $table->bigInteger('lokasisawah_id');
             $table->string('ks_metode_pengairan');
             $table->string('ks_sumber_modal');
             $table->float('ks_luas_lahan');

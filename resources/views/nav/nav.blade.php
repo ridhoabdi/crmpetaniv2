@@ -41,7 +41,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ url('/pages/pestisida') }}">
+            <a class="nav-link" href="{{ url('/viewkegiatanpestisida/') }}">
                 <i class="menu-icon mdi mdi-spray"></i>
                 <span class="menu-title">Kegiatan Pestisida</span>
             </a>

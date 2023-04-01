@@ -13,15 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('lokasisawahs', function (Blueprint $table) {
+        Schema::create('kspestisidas', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id');
-            $table->bigInteger('iot_id')->nullable();
-            $table->float('lokasisawah_latitude')->nullable();
-            $table->float('lokasisawah_longitude')->nullable();
-            $table->bigInteger('kabupaten_id');
-            $table->string('lokasisawah_keterangan')->nullable();
-            $table->integer('lokasisawah_status')->nullable();
+            $table->bigInteger('lokasisawah_id');
+            $table->bigInteger('kegiatansawah_id');
+            $table->bigInteger('pestisida_id');
+            $table->date('ks_pestisida_tgl_semprot');
+            $table->float('ks_pestisida_jumlah_takaran');
+            $table->string('ks_pestisida_keterangan')->nullable();
             $table->timestamps();
         });
     }
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lokasisawahs');
+        Schema::dropIfExists('kspestisidas');
     }
 };

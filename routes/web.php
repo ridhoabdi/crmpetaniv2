@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\KegiatansawahController;
+use App\Http\Controllers\KspestisidaController;
 use App\Http\Controllers\LokasisawahController;
 use App\Http\Controllers\pendaftaranController;
 use App\Http\Controllers\ProfileController;
@@ -30,9 +31,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
-    Route::get('/pages/myprofile', [pendaftaranController::class, 'index']);
-    Route::post('/kirim/daftarpetani', [pendaftaranController::class, 'store']);
-
     // Lokasi sawah
     Route::get('/viewlokasisawah', [LokasisawahController::class, 'index'])->name('viewlokasisawah');
     Route::get('/addlokasisawah', [LokasisawahController::class, 'create'])->name('addlokasisawah');
@@ -48,6 +46,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/editkegiatansawah/{id}', [KegiatansawahController::class, 'edit'])->name('editkegiatansawah');
     Route::put('/updatekegiatansawah/{id}', [KegiatansawahController::class, 'update']);
     Route::delete('/deletekegiatansawah/{id}', [KegiatansawahController::class, 'destroy']);
+
+    // Kegiatan Pestisida
+    Route::get('/viewkegiatanpestisida', [KspestisidaController::class, 'index'])->name('viewkegiatanpestisida');
+    Route::get('/addkegiatanpestisida', [KspestisidaController::class, 'create'])->name('addkegiatanpestisida');
+    Route::post('/storekegiatanpestisida', [KspestisidaController::class, 'store']);
+    Route::get('/editkegiatanpestisida/{id}', [KspestisidaController::class, 'edit'])->name('editkegiatanpestisida');
+    Route::put('/updatekegiatanpestisida/{id}', [KspestisidaController::class, 'update']);
+    Route::delete('/deletekegiatanpestisida/{id}', [KspestisidaController::class, 'destroy']);
         
 });
 
