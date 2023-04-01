@@ -45,6 +45,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/viewkegiatansawah', [KegiatansawahController::class, 'index'])->name('viewkegiatansawah');
     Route::get('/addkegiatansawah', [KegiatansawahController::class, 'create'])->name('addkegiatansawah');
     Route::post('/storekegiatansawah', [KegiatansawahController::class, 'store']);
+    Route::get('/editkegiatansawah/{id}', [KegiatansawahController::class, 'edit'])->name('editkegiatansawah');
+    Route::put('/updatekegiatansawah/{id}', [KegiatansawahController::class, 'update']);
+    Route::delete('/deletekegiatansawah/{id}', [KegiatansawahController::class, 'destroy']);
         
 });
 
