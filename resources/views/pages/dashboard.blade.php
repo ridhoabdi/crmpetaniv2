@@ -6,31 +6,35 @@
     <div class="col-md-12">
         <p class="h3 fw-bold">Prediksi Cuaca</p>
         <p class="lead">Silahkan tambahkan lokasi agar mendapatkan prediksi cuaca yang sesuai dengan lokasi anda atau silahkan ijinkan akses lokasi di hp anda.</p>
-        <a class="weatherwidget-io d-block mt-3" href="https://forecast7.com/en/n7d01110d44/semarang/"
-        data-label_1="SEMARANG" data-label_2="WEATHER" data-days="3"
-        data-theme="pure">SEMARANG WEATHER</a>
         <script>
-            ! function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (!d.getElementById(id)) {
-                    js = d.createElement(s);
-                    js.id = id;
-                    js.src = 'https://weatherwidget.io/js/widget.min.js';
-                    fjs.parentNode.insertBefore(js, fjs);
+            (function(d, s, id) {
+                if (d.getElementById(id)) {
+                    if (window.__TOMORROW__) {
+                        window.__TOMORROW__.renderWidget();
+                    }
+                    return;
                 }
-            }(document, 'script', 'weatherwidget-io-js');
+                const fjs = d.getElementsByTagName(s)[0];
+                const js = d.createElement(s);
+                js.id = id;
+                js.src = "https://www.tomorrow.io/v1/widget/sdk/sdk.bundle.min.js";
+
+                fjs.parentNode.insertBefore(js, fjs);
+            })(document, 'script', 'tomorrow-sdk');
         </script>
-      </div>
+
+        <div class="tomorrow"
+           data-location-id="{{ $lokasisawahs->isNotEmpty() ? $lokasisawahs->first()->kabupaten_kode : '056965' }}"
+           data-language="ID"
+           data-unit-system="METRIC"
+           data-skin="light"
+           data-widget-type="upcoming"
+           style="padding-bottom:22px;position:relative;">
+        </div>
+    </div>
 </div>
 
-<div>
-
-
-
-
-</div>
-<p class="h3 fw-bold">Daftar Harga Bawang Merah Dipasar</p>
-{{-- <p class="lead">Silahkan tambahkan Kegiatan Sawah</p> --}}
+<p class="h3 fw-bold mt-3">Daftar Harga Bawang Merah Dipasar</p>
 <div class="row">
     <div class="col">
       <div class="card bg-primary">

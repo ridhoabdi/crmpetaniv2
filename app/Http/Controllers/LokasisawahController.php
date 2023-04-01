@@ -64,6 +64,7 @@ class LokasisawahController extends Controller
 
             $lokasisawahs = Lokasisawah::create([
                 'user_id' => $user_id,
+                'iot_id' => $request->iot_id,
                 'lokasisawah_latitude' => $request->lokasisawah_latitude,
                 'lokasisawah_longitude' => $request->lokasisawah_longitude,
                 'kabupaten_id' => $request->kabupaten_id,
@@ -76,6 +77,18 @@ class LokasisawahController extends Controller
             // Jika jumlah data lebih dari 1, tampilkan pesan error
             return redirect('/viewlokasisawah')->with('error', 'Maaf, Anda hanya dapat menambahkan 1 lokasi sawah');
         }
+    }
+
+    public function showcuaca()
+    {
+        $user_id = auth()->user()->id;
+        $lokasisawahs = Lokasisawah::where('user_id', $user_id)
+            ->join('kabupatens', 'kabupatens.id', '=', 'lokasisawahs.kabupaten_id')
+            ->select('lokasisawahs.*', 'kabupatens.kabupaten_nama', 'kabupatens.kabupaten_kode')
+            ->get();
+
+        // return dd($lokasisawahs);
+        return view('pages.dashboard', compact('lokasisawahs'));
     }
 
     /**
@@ -136,6 +149,7 @@ class LokasisawahController extends Controller
         ]);
 
         $lokasisawahs->update([
+            'iot_id' => $request->iot_id,
             'lokasisawah_latitude' => $request->lokasisawah_latitude,
             'lokasisawah_longitude' => $request->lokasisawah_longitude,
             'kabupaten_id' => $request->kabupaten_id,

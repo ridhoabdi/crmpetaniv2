@@ -40,6 +40,10 @@
                     <div class="col-md-8">
                         <table>
                             <tr>
+                                <th style="width: 180px;">ID IoT</th>
+                                <td>{{ $lokasisawah->iot_id ? $lokasisawah->iot_id : '-' }}</td>
+                            </tr>
+                            <tr>
                                 <th style="width: 180px;">Latitude</th>
                                 <td>{{ $lokasisawah->lokasisawah_latitude ? $lokasisawah->lokasisawah_latitude : '-' }}</td>
                             </tr>

@@ -16,6 +16,12 @@
         <form action="/storelokasisawah" method="POST">
             @csrf
 
+            <!-- ID IoT -->
+            <div class="form-group mt-3">
+                <label for="iot_id">IoT ID</label>
+                <input type="number" name="iot_id" class="form-control form-control-lg" id="iot_id">
+            </div>
+
             <!-- Latitude -->
             <div class="form-group mt-3">
                 <label for="lokasisawah_latitude">Latitude</label>
