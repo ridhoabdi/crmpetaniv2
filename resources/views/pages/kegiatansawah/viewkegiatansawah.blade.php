@@ -83,7 +83,7 @@
                             <a href="/editkegiatansawah/{{ $kegiatansawah->id }}" class="btn btn-sm btn-outline-primary mx-1">
                                 <i class="menu-icon mdi mdi-pencil"></i> Edit
                             </a>
-                            <form action="/deletekegiatansawah/{{ $kegiatansawah->id }}" method="POST" onsubmit="return confirm('Apakah Anda ingin menghapus Lokasi Sawah ini?')">
+                            <form action="/deletekegiatansawah/{{ $kegiatansawah->id }}" method="POST" onsubmit="return confirm('Apakah Anda ingin menghapus data Kegiatan Penanaman Bawang ini?')">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-outline-danger mx-1">
