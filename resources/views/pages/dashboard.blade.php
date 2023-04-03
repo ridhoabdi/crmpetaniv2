@@ -4,8 +4,8 @@
 
 <div class="row">
     <div class="col-md-12">
-        <p class="h3 fw-bold">Prediksi Cuaca</p>
-        <p class="lead">Silahkan tambahkan lokasi agar mendapatkan prediksi cuaca yang sesuai dengan lokasi anda atau silahkan ijinkan akses lokasi di hp anda.</p>
+        <p class="h3 fw-bold">Perkiraan Cuaca</p>
+        <p class="lead">Silahkan tambahkan lokasi agar mendapatkan perkiraan cuaca yang sesuai dengan lokasi Anda</p>
         <script>
             (function(d, s, id) {
                 if (d.getElementById(id)) {
@@ -24,7 +24,7 @@
         </script>
 
         <div class="tomorrow"
-           data-location-id="{{ $lokasisawahs->isNotEmpty() ? $lokasisawahs->first()->kabupaten_kode : '056965' }}"
+           data-location-id="{{ $lokasisawahs->isNotEmpty() ? $lokasisawahs->first()->kabupaten_kode : '056378' }}"
            data-language="ID"
            data-unit-system="METRIC"
            data-skin="light"
@@ -34,13 +34,14 @@
     </div>
 </div>
 
-<p class="h3 fw-bold mt-3">Daftar Harga Bawang Merah Dipasar</p>
+<p class="h3 fw-bold mt-4">Info Harga Bawang Merah Di Daerah "{{ $lokasisawahs->isNotEmpty() ? $lokasisawahs->first()->kabupaten_nama : '...' }}"</p>
+<p class="lead">Di bawah ini tertera harga bawang merah yang berlaku di pasar</p>
 <div class="row">
     <div class="col">
       <div class="card bg-primary">
         <div class="card-body">
-          <p class="h3 fw-bold text-white">Info Harga Bawang Merah Di Daerah "Jakarta"</p>
-          <p class="lead text-white">Harga Rata Rata Rp 50.109/kg</p>
+          <p class="h3 fw-bold text-white">Harga Rata-rata</p>
+          <p class="lead text-white">Rp .../kg</p>
         </div>
       </div>
     </div>
@@ -49,7 +50,7 @@
       <div class="card bg-success">
         <div class="card-body">
           <p class="h3 fw-bold text-white">Harga Tertinggi</p>
-          <p class="lead text-white">Rp 65.000/kg</p>
+          <p class="lead text-white">Rp .../kg</p>
         </div>
       </div>
     </div>
@@ -58,17 +59,15 @@
       <div class="card bg-danger">
         <div class="card-body">
           <p class="h3 fw-bold text-white">Harga Terendah</p>
-          <p class="lead text-white">Rp 35.000/kg</p>
+          <p class="lead text-white">Rp .../kg</p>
         </div>
       </div>
     </div>
   </div>
   
 
-<p class="h3 fw-bold">Prediksi</p>
+<p class="h3 fw-bold mt-4">Prediksi</p>
 <p class="lead">Silahkan tambahkan Kegiatan Sawah</p>
-{{-- <p class="card-title">Table IoT</p> --}}
-
   <div class="row">
     <div class="col">
       <div class="card bg-info">

@@ -5,12 +5,12 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div class="card-header">
-            <a href="/viewkegiatansawah" class="btn btn-sm btn-outline-secondary mt-1">
+            <a href="/viewkegiatanpestisida" class="btn btn-sm btn-outline-secondary mt-1">
                 <i class="menu-icon mdi mdi-arrow-left"></i>
             </a>
 
             <h5 class="card-title mt-3">Form Tambah Data Kegiatan Pestisida</h5>
-            <p class="mt-1">Formulir ini bertujuan untuk mengumpulkan data kegiatan pestisida Bapak/Ibu. Silakan melengkapi formulir di bawah ini agar sistem kami dapat memberikan rekomendasi terbaik untuk kegiatan pertanian Bapak/Ibu.</p>
+            <p class="mt-1">Berikut ini adalah formulir untuk menambahkan data kegiatan pupuk yang bertujuan untuk mengumpulkan informasi tentang kegiatan pupuk yang dilakukan. Mohon untuk melengkapi formulir di bawah ini agar sistem kami dapat memberikan rekomendasi terbaik dalam pertanian.</p>
         </div>
 
         <form action="/storekegiatanpestisida" method="POST">

@@ -30,7 +30,7 @@
                     <li class="nav-item"><a class="nav-link" href="{{ url('/pages/PerkiraanIot') }}">IoT Sensor</a></li>
                 </ul>
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/pages/PerkiraanCuaca') }}">Perkiraan Cuaca #Dalam Pengembangan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('/pages/PerkiraanCuaca') }}">Perkiraan Cuaca</a></li>
                 </ul>
             </div>
         </li>
@@ -41,15 +41,15 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ url('/viewkegiatanpestisida/') }}">
-                <i class="menu-icon mdi mdi-spray"></i>
-                <span class="menu-title">Kegiatan Pestisida</span>
+            <a class="nav-link" href="{{ url('/viewkegiatanpupuk/') }}">
+                <i class="menu-icon mdi mdi-chemical-weapon"></i>
+                <span class="menu-title">Kegiatan Pupuk</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ url('/pages/pupuk') }}">
-                <i class="menu-icon mdi mdi-chemical-weapon"></i>
-                <span class="menu-title">Kegiatan Pupuk</span>
+            <a class="nav-link" href="{{ url('/viewkegiatanpestisida/') }}">
+                <i class="menu-icon mdi mdi-spray"></i>
+                <span class="menu-title">Kegiatan Pestisida</span>
             </a>
         </li>
         <li class="nav-item">

@@ -5,12 +5,12 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div class="card-header">
-            <a href="/viewkegiatansawah" class="btn btn-sm btn-outline-secondary mt-1">
+            <a href="/viewkegiatanpestisida" class="btn btn-sm btn-outline-secondary mt-1">
                 <i class="menu-icon mdi mdi-arrow-left"></i>
             </a>
 
             <h5 class="card-title mt-3">Form Edit Data Kegiatan Pestisida</h5>
-            <p class="mt-1">Silakan mengubah formulir di bawah ini dengan data kegiatan pestisida yang baru.</p>
+            <p class="mt-1">Silakan mengubah formulir di bawah ini dengan data kegiatan pestisida yang baru</p>
         </div>
 
         <form action="/updatekegiatanpestisida/{{ $kspestisidas->id }}" method="POST">

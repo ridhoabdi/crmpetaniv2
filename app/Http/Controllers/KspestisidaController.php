@@ -99,7 +99,7 @@ class KspestisidaController extends Controller
 
         // menginputkan data maksimal 5 kali
 
-        // Cek jumlah data kegiatan sawah yang dimiliki oleh user
+        // Cek jumlah data kegiatan pestisida yang dimiliki oleh user
         $kspestisida_count = Kspestisida::where('user_id', $user_id)->count();
 
         // Jika jumlah data kurang dari atau sama dengan 5, simpan data

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\KegiatansawahController;
 use App\Http\Controllers\KspestisidaController;
+use App\Http\Controllers\KspupukController;
 use App\Http\Controllers\LokasisawahController;
 use App\Http\Controllers\pendaftaranController;
 use App\Http\Controllers\ProfileController;
@@ -50,6 +51,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/editkegiatansawah/{id}', [KegiatansawahController::class, 'edit'])->name('editkegiatansawah');
     Route::put('/updatekegiatansawah/{id}', [KegiatansawahController::class, 'update']);
     Route::delete('/deletekegiatansawah/{id}', [KegiatansawahController::class, 'destroy']);
+
+    // Kegiatan Pupuk
+    Route::get('/viewkegiatanpupuk', [KspupukController::class, 'index'])->name('viewkegiatanpupuk');
+    Route::get('/addkegiatanpupuk', [KspupukController::class, 'create'])->name('addkegiatanpupuk');
+    Route::post('/fetch-merkpupuks/{id}',[KsPupukController::class,'fetchMerkpupuks']);
+    Route::post('/storekegiatanpupuk', [KspupukController::class, 'store']);
+    Route::get('/editkegiatanpupuk/{id}', [KspupukController::class, 'edit'])->name('editkegiatanpupuk');
+    Route::put('/updatekegiatanpupuk/{id}', [KspupukController::class, 'update']);
+    Route::delete('/deletekegiatanpupuk/{id}', [KspupukController::class, 'destroy']);
 
     // Kegiatan Pestisida
     Route::get('/viewkegiatanpestisida', [KspestisidaController::class, 'index'])->name('viewkegiatanpestisida');

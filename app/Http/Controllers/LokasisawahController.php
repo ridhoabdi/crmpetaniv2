@@ -54,8 +54,8 @@ class LokasisawahController extends Controller
         // Cek jumlah data lokasi yang dimiliki oleh user
         $lokasi_count = Lokasisawah::where('user_id', $user_id)->count();
 
-        // Jika jumlah data kurang dari atau sama dengan 1, simpan data
-        if ($lokasi_count < 1) {
+        // Jika jumlah data kurang dari atau sama dengan 5, simpan data
+        if ($lokasi_count < 5) {
             $request->validate([
                 'kabupaten_id' => 'required|exists:kabupatens,id'
             ], [
@@ -75,7 +75,7 @@ class LokasisawahController extends Controller
             
         } else {
             // Jika jumlah data lebih dari 1, tampilkan pesan error
-            return redirect('/viewlokasisawah')->with('error', 'Maaf, Anda hanya dapat menambahkan 1 lokasi sawah');
+            return redirect('/viewlokasisawah')->with('error', 'Maaf, Anda hanya dapat menambahkan 5 lokasi sawah');
         }
     }
 

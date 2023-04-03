@@ -114,8 +114,8 @@ class KegiatansawahController extends Controller
         // Cek jumlah data kegiatan sawah yang dimiliki oleh user
         $kegiatansawah_count = Kegiatansawah::where('user_id', $user_id)->count();
 
-        // Jika jumlah data kurang dari atau sama dengan 1, simpan data
-        if ($kegiatansawah_count < 1) {
+        // Jika jumlah data kurang dari atau sama dengan 5, simpan data
+        if ($kegiatansawah_count < 5) {
             $request->validate([
                 'lokasisawah_id' => 'required|exists:lokasisawahs,id',
                 'ks_waktu_tanam' => 'required',
@@ -153,7 +153,7 @@ class KegiatansawahController extends Controller
 
         } else {
             // Jika jumlah data lebih dari 1, tampilkan pesan error
-            return redirect('/viewkegiatansawah')->with('error', 'Maaf, Anda hanya dapat menambahkan 1 kegiatan penanaman bawang');
+            return redirect('/viewkegiatansawah')->with('error', 'Maaf, Anda hanya dapat menambahkan 5 kegiatan penanaman bawang');
         }
     }
 
