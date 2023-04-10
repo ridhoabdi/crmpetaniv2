@@ -28,6 +28,7 @@ class KegiatansawahController extends Controller
                 ->join('kabupatens', 'lokasisawahs.kabupaten_id', '=', 'kabupatens.id')
                 ->select('kegiatansawahs.*', 'kabupatens.kabupaten_nama', 'lokasisawahs.lokasisawah_keterangan')
                 ->where('kegiatansawahs.user_id', $user_id)
+                ->where('kegiatansawahs.ks_panen', 0)
                 ->get();
 
             // return dd($kegiatansawahs);
@@ -66,8 +67,6 @@ class KegiatansawahController extends Controller
      */
     public function store(Request $request)
     {   
-        // Menginputkan data hanya 1 kali
-
         // user id
         $user_id = auth()->user()->id;
 
@@ -111,50 +110,41 @@ class KegiatansawahController extends Controller
         $ks_jumlah_modal = preg_replace("/[^0-9]/", "", $ks_jumlah_modal); // menghapus karakter selain angka
         $ks_jumlah_modal = intval($ks_jumlah_modal); // mengonversi nilai menjadi integer
 
-        // Cek jumlah data kegiatan sawah yang dimiliki oleh user
-        $kegiatansawah_count = Kegiatansawah::where('user_id', $user_id)->count();
+        // form validasi
+        $request->validate([
+            'lokasisawah_id' => 'required|exists:lokasisawahs,id',
+            'ks_waktu_tanam' => 'required',
+            'ks_metode_pengairan' => 'required|min:1',
+            'ks_jumlah_bibit' => 'required',
+            'ks_luas_lahan' => 'required',
+            'ks_status_lahan' => 'required',
+            'ks_sumber_modal' => 'required',
+            'ks_jumlah_modal' => 'required'
+        ], [
+            'lokasisawah_id' => '*Field ini wajib diisi',
+            'ks_waktu_tanam' => '*Field ini wajib diisi',
+            'ks_metode_pengairan' => '*Field ini wajib diisi',
+            'ks_jumlah_bibit' => '*Field ini wajib diisi',
+            'ks_luas_lahan' => '*Field ini wajib diisi',
+            'ks_status_lahan' => '*Field ini wajib diisi',
+            'ks_sumber_modal' => '*Field ini wajib diisi',
+            'ks_jumlah_modal' => '*Field ini wajib diisi'
+        ]);
 
-        // Jika jumlah data kurang dari atau sama dengan 5, simpan data
-        if ($kegiatansawah_count < 5) {
-            $request->validate([
-                'lokasisawah_id' => 'required|exists:lokasisawahs,id',
-                'ks_waktu_tanam' => 'required',
-                'ks_metode_pengairan' => 'required|min:1',
-                'ks_jumlah_bibit' => 'required',
-                'ks_luas_lahan' => 'required',
-                'ks_status_lahan' => 'required',
-                'ks_sumber_modal' => 'required',
-                'ks_jumlah_modal' => 'required'
-            ], [
-                'lokasisawah_id' => '*Field ini wajib diisi',
-                'ks_waktu_tanam' => '*Field ini wajib diisi',
-                'ks_metode_pengairan' => '*Field ini wajib diisi',
-                'ks_jumlah_bibit' => '*Field ini wajib diisi',
-                'ks_luas_lahan' => '*Field ini wajib diisi',
-                'ks_status_lahan' => '*Field ini wajib diisi',
-                'ks_sumber_modal' => '*Field ini wajib diisi',
-                'ks_jumlah_modal' => '*Field ini wajib diisi'
-            ]);
+        $kegiatansawahs = Kegiatansawah::create([
+            'user_id' => $user_id,
+            'lokasisawah_id' => $request->lokasisawah_id,
+            'ks_waktu_tanam' => $request->ks_waktu_tanam,
+            'ks_metode_pengairan' => $input_ks_metode_pengairan,
+            'ks_jumlah_bibit' => $dataHasiljumlahbibit,
+            'ks_luas_lahan' => $dataHasilluaslahan,
+            'ks_status_lahan' => $input_ks_status_lahan,
+            'ks_sumber_modal' => $input_ks_sumber_modal,
+            'ks_jumlah_modal' => $ks_jumlah_modal,
+            'ks_panen' => $request->ks_panen
+        ]);
 
-            $kegiatansawahs = Kegiatansawah::create([
-                'user_id' => $user_id,
-                'lokasisawah_id' => $request->lokasisawah_id,
-                'ks_waktu_tanam' => $request->ks_waktu_tanam,
-                'ks_metode_pengairan' => $input_ks_metode_pengairan,
-                'ks_jumlah_bibit' => $dataHasiljumlahbibit,
-                'ks_luas_lahan' => $dataHasilluaslahan,
-                'ks_status_lahan' => $input_ks_status_lahan,
-                'ks_sumber_modal' => $input_ks_sumber_modal,
-                'ks_jumlah_modal' => $ks_jumlah_modal,
-                'ks_panen' => $request->ks_panen
-            ]);
-    
-            return redirect('/viewkegiatansawah')->with('success', 'Data berhasil disimpan');
-
-        } else {
-            // Jika jumlah data lebih dari 1, tampilkan pesan error
-            return redirect('/viewkegiatansawah')->with('error', 'Maaf, Anda hanya dapat menambahkan 5 kegiatan penanaman bawang');
-        }
+        return redirect('/viewkegiatansawah')->with('success', 'Data berhasil disimpan');
     }
 
     /**

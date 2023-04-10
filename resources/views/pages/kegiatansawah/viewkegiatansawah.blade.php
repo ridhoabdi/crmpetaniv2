@@ -54,7 +54,6 @@
                             <tr>
                                 <th style="width: 180px;">Luas Lahan</th>
                                 <td>{{ number_format($kegiatansawah->ks_luas_lahan, 0, ',', '.') }} m<sup>2</sup></td>
-
                             </tr>
                             <tr>
                                 <th style="width: 180px;">Status Lahan</th>

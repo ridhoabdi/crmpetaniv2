@@ -103,6 +103,7 @@
                 <label for="ks_pupuk_jumlah_takaran">Jumlah Takaran Pupuk *</label>
 
                 <input type="number" step="0.01" name="ks_pupuk_jumlah_takaran" class="form-control form-control-lg @error('ks_pupuk_jumlah_takaran') is-invalid @enderror" value="{{ old('ks_pupuk_jumlah_takaran') }}">
+                
                 <div class="form-check">
                     <div class="">
                         <input class="inputan" type="radio" id="kilogram" name="stnPupuk" value="Kilogram">
@@ -117,6 +118,7 @@
                         <label>Ton</label>
                     </div>
                 </div>
+            </div>
 
             <!-- Keterangan Kegiatan Pupuk -->
             <div class="form-group">

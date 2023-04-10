@@ -66,13 +66,16 @@
                             <a href="/editlokasisawah/{{ $lokasisawah->id }}" class="btn btn-sm btn-outline-primary mx-1">
                                 <i class="menu-icon mdi mdi-pencil"></i> Edit
                             </a>
-                            <form action="/deletelokasisawah/{{ $lokasisawah->id }}" method="POST" onsubmit="return confirm('Apakah Anda ingin menghapus Lokasi Sawah ini?')">
+
+                            <!-- Sementara fitur delete lokasi dinonaktifkan dulu -->
+                            
+                            <!-- <form action="/deletelokasisawah/{{ $lokasisawah->id }}" method="POST" onsubmit="return confirm('Apakah Anda ingin menghapus Lokasi Sawah ini?')">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-outline-danger mx-1">
                                     <i class="menu-icon mdi mdi-delete"></i> Hapus
                                 </button>
-                            </form>
+                            </form> -->
                         </div>
                     </div>
                 </div>

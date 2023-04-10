@@ -19,6 +19,7 @@ class LokasisawahController extends Controller
         $lokasisawahs = Lokasisawah::where('user_id', $user_id)
             ->join('kabupatens', 'kabupatens.id', '=', 'lokasisawahs.kabupaten_id')
             ->select('lokasisawahs.*', 'kabupatens.kabupaten_nama')
+            ->where('lokasisawahs.lokasisawah_status', 0)
             ->get();
 
         // return dd($lokasisawahs);
@@ -47,48 +48,26 @@ class LokasisawahController extends Controller
      */
     public function store(Request $request)
     {
-        // Menginputkan data hanya 1 kali
-
+        // user id
         $user_id = auth()->user()->id;
 
-        // Cek jumlah data lokasi yang dimiliki oleh user
-        $lokasi_count = Lokasisawah::where('user_id', $user_id)->count();
+        $request->validate([
+            'kabupaten_id' => 'required|exists:kabupatens,id'
+        ], [
+            'kabupaten_id' => '*Field ini wajib diisi'
+        ]);
 
-        // Jika jumlah data kurang dari atau sama dengan 5, simpan data
-        if ($lokasi_count < 5) {
-            $request->validate([
-                'kabupaten_id' => 'required|exists:kabupatens,id'
-            ], [
-                'kabupaten_id' => '*Field ini wajib diisi'
-            ]);
+        $lokasisawahs = Lokasisawah::create([
+            'user_id' => $user_id,
+            'iot_id' => $request->iot_id,
+            'lokasisawah_latitude' => $request->lokasisawah_latitude,
+            'lokasisawah_longitude' => $request->lokasisawah_longitude,
+            'kabupaten_id' => $request->kabupaten_id,
+            'lokasisawah_keterangan' => $request->lokasisawah_keterangan,
+            'lokasisawah_status' => $request->lokasisawah_status
+        ]);
 
-            $lokasisawahs = Lokasisawah::create([
-                'user_id' => $user_id,
-                'iot_id' => $request->iot_id,
-                'lokasisawah_latitude' => $request->lokasisawah_latitude,
-                'lokasisawah_longitude' => $request->lokasisawah_longitude,
-                'kabupaten_id' => $request->kabupaten_id,
-                'lokasisawah_keterangan' => $request->lokasisawah_keterangan,
-            ]);
-
-            return redirect('/viewlokasisawah')->with('success', 'Data berhasil disimpan');
-            
-        } else {
-            // Jika jumlah data lebih dari 1, tampilkan pesan error
-            return redirect('/viewlokasisawah')->with('error', 'Maaf, Anda hanya dapat menambahkan 5 lokasi sawah');
-        }
-    }
-
-    public function showcuaca()
-    {
-        $user_id = auth()->user()->id;
-        $lokasisawahs = Lokasisawah::where('user_id', $user_id)
-            ->join('kabupatens', 'kabupatens.id', '=', 'lokasisawahs.kabupaten_id')
-            ->select('lokasisawahs.*', 'kabupatens.kabupaten_nama', 'kabupatens.kabupaten_kode')
-            ->get();
-
-        // return dd($lokasisawahs);
-        return view('pages.dashboard', compact('lokasisawahs'));
+        return redirect('/viewlokasisawah')->with('success', 'Data berhasil disimpan');
     }
 
     /**

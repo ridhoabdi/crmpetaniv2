@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\InfoController;
 use App\Http\Controllers\KegiatansawahController;
 use App\Http\Controllers\KspestisidaController;
 use App\Http\Controllers\KspupukController;
 use App\Http\Controllers\LokasisawahController;
-use App\Http\Controllers\pendaftaranController;
+use App\Http\Controllers\PanenController;
+use App\Http\Controllers\PerkiraancuacaController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RiwayatpanenController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,7 +30,7 @@ Route::get('/', function () {
 //     return view('pages.dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/dashboard', [LokasisawahController::class, 'showcuaca'])
+Route::get('/dashboard', [InfoController::class, 'showperkiraancuaca'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
@@ -43,6 +46,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/editlokasisawah/{id}', [LokasisawahController::class, 'edit'])->name('editlokasisawah');
     Route::put('/updatelokasisawah/{id}', [LokasisawahController::class, 'update']);
     Route::delete('/deletelokasisawah/{id}', [LokasisawahController::class, 'destroy']);
+
+    // IoT
+    Route::get('/viewperkiraancuaca', [InfoController::class, 'viewperkiraancuaca'])->name('viewperkiraancuaca');
 
     // Kegiatan sawah
     Route::get('/viewkegiatansawah', [KegiatansawahController::class, 'index'])->name('viewkegiatansawah');
@@ -68,6 +74,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/editkegiatanpestisida/{id}', [KspestisidaController::class, 'edit'])->name('editkegiatanpestisida');
     Route::put('/updatekegiatanpestisida/{id}', [KspestisidaController::class, 'update']);
     Route::delete('/deletekegiatanpestisida/{id}', [KspestisidaController::class, 'destroy']);
+
+    // Panen
+    Route::get('/viewpanen', [PanenController::class, 'index'])->name('viewpanen');
+    Route::get('/addpanen/{id}', [PanenController::class, 'create'])->name('addpanen');
+    Route::get('/cari', [PanenController::class, 'loaddata'])->name('loaddata');
+    Route::post('/storepanen', [PanenController::class, 'store']);
+    Route::get('/editpanen/{id}', [PanenController::class, 'edit'])->name('editpanen');
+    Route::put('/updatepanen/{id}', [PanenController::class, 'update']);
+
+    // Riwayat Panen
+    Route::get('/viewriwayatpanen', [RiwayatpanenController::class, 'index'])->name('viewriwayatpanen');
+
         
 });
 

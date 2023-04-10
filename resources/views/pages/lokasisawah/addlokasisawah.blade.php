@@ -54,6 +54,11 @@
                 <textarea class="form-control form-control-lg" name="lokasisawah_keterangan" id="lokasisawah_keterangan" rows="3"></textarea>
             </div>
 
+            <!-- Status Lokasi -->
+            <div class="form-group">
+                <input type="hidden" name="lokasisawah_status" value="0">
+            </div>
+
             <!-- Buttom Submit dan Cancel -->
             <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-success me-3">Submit</button>

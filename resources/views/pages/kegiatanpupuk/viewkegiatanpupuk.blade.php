@@ -31,7 +31,6 @@
         <h5>Data Kegiatan Pupuk</h5>
         <a href="/addkegiatanpupuk" class="btn btn-sm btn-outline-success mt-1">
             <i class="menu-icon mdi mdi-plus"></i> Tambah data
-            <a href=""></a>
         </a>
     </div>
     <ul class="list-group mt-3">

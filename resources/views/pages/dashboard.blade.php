@@ -38,6 +38,14 @@
 <p class="lead">Di bawah ini tertera harga bawang merah yang berlaku di pasar</p>
 <div class="row">
     <div class="col">
+      <div class="card bg-danger">
+        <div class="card-body">
+          <p class="h3 fw-bold text-white">Harga Tertinggi</p>
+          <p class="lead text-white">Rp .../kg</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
       <div class="card bg-primary">
         <div class="card-body">
           <p class="h3 fw-bold text-white">Harga Rata-rata</p>
@@ -45,18 +53,8 @@
         </div>
       </div>
     </div>
-  
     <div class="col">
       <div class="card bg-success">
-        <div class="card-body">
-          <p class="h3 fw-bold text-white">Harga Tertinggi</p>
-          <p class="lead text-white">Rp .../kg</p>
-        </div>
-      </div>
-    </div>
-  
-    <div class="col">
-      <div class="card bg-danger">
         <div class="card-body">
           <p class="h3 fw-bold text-white">Harga Terendah</p>
           <p class="lead text-white">Rp .../kg</p>
@@ -66,9 +64,9 @@
   </div>
   
 
-<p class="h3 fw-bold mt-4">Prediksi</p>
-<p class="lead">Silahkan tambahkan Kegiatan Sawah</p>
-  <div class="row">
+<!-- <p class="h3 fw-bold mt-4">Prediksi</p>
+<p class="lead">Silahkan tambahkan Kegiatan Sawah</p> -->
+  <!-- <div class="row">
     <div class="col">
       <div class="card bg-info">
         <div class="card-body">
@@ -95,10 +93,9 @@
         </div>
       </div>
     </div>
-  </div>
-  
+  </div> -->
 </div>
-<p class="h3 fw-bold">Data IoT Sekarang</p>
+<p class="h3 fw-bold mt-4">Data IoT Sekarang</p>
 <p class="lead">Silahkan tambahkan lokasi jika data Sensor iot belum ada</p>
 <div class="row">
     {{-- @foreach ($data as $item['iot']); --}}
@@ -130,9 +127,8 @@
                             <div
                                 class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
                                 <div class="h2 font-weight-bold">
-                                    10<sup
-                                        class="small">km/h</sup></div>
-                            </div>
+                                    10<sup class="small">km/h</sup></div>
+                                </div>
                         </div> 
                     </div>
                 </div>
@@ -288,8 +284,8 @@
 </div>
 <div>
 
-<p class="h3 fw-bold">History IoT diladang Anda</p>
-        <p class="lead">Silahkan tambahkan lokasi jika data history iot belum ada</p>
+        <!-- <p class="h3 fw-bold">History IoT diladang Anda</p> -->
+        <!-- <p class="lead">Silahkan tambahkan lokasi jika data history iot belum ada</p>
         <p class="card-title">Table IoT</p>
 
         <div class="row">
@@ -337,7 +333,7 @@
                 <div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
 </div>
 
