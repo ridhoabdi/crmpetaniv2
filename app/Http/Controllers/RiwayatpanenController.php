@@ -7,6 +7,7 @@ use App\Models\Kspestisida;
 use App\Models\Kspupuk;
 use App\Models\Lokasisawah;
 use App\Models\Panen;
+use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -51,6 +52,75 @@ class RiwayatpanenController extends Controller
             return view('/pages/riwayatpanen/viewriwayatpanen', compact('panens'));
             
         }
+
+    }
+
+    public function pdfriwayatpanen($id){
+
+        $user_id = auth()->user()->id;
+
+        $panens = DB::table('panens')
+            ->join('users', 'panens.user_id', '=', 'users.id')
+            ->join('pengepuls', 'panens.user_id', '=', 'pengepuls.id')
+            ->join('lokasisawahs', 'panens.lokasisawah_id', '=', 'lokasisawahs.id')
+            ->join('kabupatens', 'lokasisawahs.kabupaten_id', '=', 'kabupatens.id')
+            ->join('kegiatansawahs', 'panens.kegiatansawah_id', '=', 'kegiatansawahs.id')
+            ->select('panens.*', 
+                'users.pemilik_nama', 
+                'pengepuls.pengepul_nama',
+                'pengepuls.pengepul_kontak',
+                'pengepuls.pengepul_kabupaten',
+                'pengepuls.pengepul_alamat',
+                'pemilik_tanggal_lahir', 
+                'pemilik_kontak', 
+                'pemilik_pendidikan', 
+                'kabupatens.kabupaten_nama', 
+                'lokasisawahs.iot_id', 
+                'lokasisawahs.lokasisawah_keterangan', 
+                'kegiatansawahs.ks_metode_pengairan', 
+                'kegiatansawahs.ks_sumber_modal',
+                'kegiatansawahs.ks_luas_lahan', 
+                'kegiatansawahs.ks_jumlah_bibit', 
+                'kegiatansawahs.ks_waktu_tanam', 
+                'kegiatansawahs.ks_status_lahan', 
+                'kegiatansawahs.ks_jumlah_modal')
+            ->where('panens.user_id', $user_id)
+            ->where('lokasisawahs.lokasisawah_status', 1)
+            ->where('kegiatansawahs.ks_panen', 1)
+            ->where('panens.id', $id)
+            ->orderBy('panen_tanggal', 'DESC')
+            ->get();
+        
+        $kspupuks = DB::table('kspupuks')
+            ->join('lokasisawahs', 'kspupuks.lokasisawah_id', '=', 'lokasisawahs.id')
+            ->join('kegiatansawahs', 'kspupuks.kegiatansawah_id', '=', 'kegiatansawahs.id')
+            ->join('jenispupuks', 'kspupuks.jenispupuk_id', '=', 'jenispupuks.id')
+            ->join('merkpupuks', 'kspupuks.merkpupuk_id', '=', 'merkpupuks.id')
+            ->join('kabupatens', 'lokasisawahs.kabupaten_id', '=', 'kabupatens.id')
+            ->select('kspupuks.*', 'kabupatens.kabupaten_nama', 'lokasisawahs.lokasisawah_keterangan', 'jenispupuks.jenispupuk_nama', 'merkpupuks.merkpupuk_nama', 'kegiatansawahs.ks_waktu_tanam')
+            ->where('kspupuks.user_id', $user_id)
+            ->where('kegiatansawahs.ks_panen', 1)
+            ->where('lokasisawahs.lokasisawah_status', 1)
+            // ->where('kspupuks.id', $id)
+            ->orderBy('ks_pupuk_tgl_rabuk', 'DESC')
+            ->get();
+
+        $kspestisidas = DB::table('kspestisidas')
+            ->join('lokasisawahs', 'kspestisidas.lokasisawah_id', '=', 'lokasisawahs.id')
+            ->join('kegiatansawahs', 'kspestisidas.kegiatansawah_id', '=', 'kegiatansawahs.id')
+            ->join('pestisidas', 'kspestisidas.pestisida_id', '=', 'pestisidas.id')
+            ->join('kabupatens', 'lokasisawahs.kabupaten_id', '=', 'kabupatens.id')
+            ->select('kspestisidas.*', 'kabupatens.kabupaten_nama', 'lokasisawahs.lokasisawah_keterangan', 'pestisidas.pestisida_nama', 'kegiatansawahs.ks_waktu_tanam')
+            ->where('kspestisidas.user_id', $user_id)
+            ->where('kegiatansawahs.ks_panen', 1)
+            ->where('lokasisawahs.lokasisawah_status', 1)
+            // ->where('kspestisidas.id', $id)
+            ->orderBy('ks_pestisida_tgl_semprot', 'DESC')
+            ->get();
+
+        $pdf = PDF::loadView('pages.riwayatpanen.pdfriwayatpanen', compact('panens', 'kspupuks', 'kspestisidas'));
+        $pdf->setPaper('A4', 'portrait');
+        return $pdf->stream('riwayat-panen.pdf'); // Memberikan nama file pada metode stream()
 
     }
 

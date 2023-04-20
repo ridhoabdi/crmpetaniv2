@@ -85,6 +85,7 @@ Route::middleware('auth')->group(function () {
 
     // Riwayat Panen
     Route::get('/viewriwayatpanen', [RiwayatpanenController::class, 'index'])->name('viewriwayatpanen');
+    Route::get('/pdfriwayatpanen/{id}', [RiwayatpanenController::class, 'pdfriwayatpanen'])->name('pdfriwayatpanen');
 
         
 });

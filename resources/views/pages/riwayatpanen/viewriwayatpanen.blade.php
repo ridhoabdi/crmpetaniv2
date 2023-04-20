@@ -86,7 +86,6 @@
                             <th>Harga Panen</th>
                             <th>Kabupaten</th>
                             <th>Alamat Lokasi Sawah</th>
-                            <th>Kondisi</th>
                             <th>Detail</th>
                         </tr>
                     </thead>
@@ -101,11 +100,11 @@
                                 <td>{{ 'Rp ' . number_format($riwayatpanen->panen_harga, 0, ',', '.') }}</td>
                                 <td>{{ $riwayatpanen->kabupaten_nama }}</td>
                                 <td>{{ $riwayatpanen->lokasisawah_keterangan }}</td>
-                                <td>Sudah Panen</td>
                                 <td>
-                                    <a href="#" class="btn btn-sm btn-outline-success mt-1">
+                                    <a href="/pdfriwayatpanen/{{$riwayatpanen->id}}" class="btn btn-sm btn-outline-success mt-1">
                                         <i class="menu-icon mdi mdi-download"></i> Unduh
                                     </a>
+
                                 </td>
                             </tr>
                         @endforeach

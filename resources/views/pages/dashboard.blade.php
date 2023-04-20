@@ -34,7 +34,7 @@
     </div>
 </div>
 
-<p class="h3 fw-bold mt-4">Info Harga Bawang Merah Di Daerah "{{ $lokasisawahs->isNotEmpty() ? $lokasisawahs->first()->kabupaten_nama : '...' }}"</p>
+<!-- <p class="h3 fw-bold mt-4">Info Harga Bawang Merah Di Daerah "{{ $lokasisawahs->isNotEmpty() ? $lokasisawahs->first()->kabupaten_nama : '...' }}"</p>
 <p class="lead">Di bawah ini tertera harga bawang merah yang berlaku di pasar</p>
 <div class="row">
     <div class="col">
@@ -61,7 +61,7 @@
         </div>
       </div>
     </div>
-  </div>
+</div> -->
   
 
 <!-- <p class="h3 fw-bold mt-4">Prediksi</p>
@@ -96,10 +96,10 @@
   </div> -->
 </div>
 <p class="h3 fw-bold mt-4">Data IoT Sekarang</p>
-<p class="lead">Silahkan tambahkan lokasi jika data Sensor iot belum ada</p>
+<p class="lead">Silahkan tambahkan lokasi jika data Sensor IoT belum ada</p>
 <div class="row">
     {{-- @foreach ($data as $item['iot']); --}}
-        <div class="container py-5">
+        <div class="container py-3">
             <div class="row">
                 {{-- <div class="col-lg-12 mx-auto mb-5 text-white text-center">
                     <h1 class="display-4">Laporan Sensor IoT</h1>
