@@ -179,62 +179,63 @@ class DatamasterpetaniController extends Controller
             // where
             ->where('datamasterpetanis.user_id', $user_id)
             ->where('kegiatansawahs.ks_panen', 1)
+            // ->where('datamasterpetanis.id', $id)
             ->where('lokasisawahs.lokasisawah_status', 1)
             // get
             ->get();
 
-        // foreach ($datamasterpetanis as $item) {
-        //     $client = new Client();
-        //     $api_url = "...";
-        //     $res = $client->post($api_url, [
-        //         'json' => [
-        //             // identitas petani
-        //             "id_petani"=> $item.user_id,
-        //             "nama_petani"=> $item.pemilik_nama,
-        //             "jeniskelamin_petani" => $item.pemilik_jeniskelamin,
-        //             "tanggallahir_petani"=> $item.pemilik_tanggal_lahir,
-        //             "kontak_petani"=> $item.pemilik_kontak,
-        //             "pendidikan_petani"=> $item.pemilik_pendidikan,
-        //             // identitas pengepul
-        //             "nama_pengepul"=> $item.pengepul_nama,
-        //             "kontak_pengepul"=> $item.pengepul_kontak,
-        //             "kab_pengepul"=> $item.pengepul_kabupaten,
-        //             "alamat_pengepul"=> $item.pengepul_alamat,
-        //             // aktivitas petani
-        //             "kab_petani"=> $item.kabupaten_nama, 
-        //             "lokasi_sawah"=> $item.lokasisawah_keterangan,
-        //             "waktu_tanam"=> $item.ks_waktu_tanam,
-        //             "metode_pengairan"=> $item.ks_metode_pengairan,
-        //             "sumber_modal"=> $item.ks_sumber_modal,
-        //             "jumlah_modal"=> $item.ks_jumlah_modal,
-        //             "status_lahan"=> $item.ks_status_lahan,
-        //             "luas_lahan"=> $item.ks_luas_lahan,
-        //             "jumlah_bibit"=> $item.ks_jumlah_bibit,
-        //             "tanggal_semprot"=> $item.ks_pestisida_tgl_semprot,
-        //             "jumlah_takaran_pestisida"=> $item.ks_pestisida_jumlah_takaran,
-        //             "keterangan_pestisida"=> $item.ks_pestisida_keterangan,
-        //             "nama_pestisida"=> $item.pestisida_nama,
-        //             "tanggal_pupuk_abuk"=> $item.ks_pupuk_tgl_rabuk,
-        //             "jumlah_takaran_pupuk"=> $item.ks_pupuk_jumlah_takaran,
-        //             "jenis_pupuk"=> $item.jenispupuk_nama,
-        //             "merek_pupuk"=> $item.merkpupuk_nama,
-        //             "keterangan_pupuk"=> $item.ks_pupuk_keterangan,
-        //             "tanggal_panen"=> $item.panen_tanggal,
-        //             "jumlah_panen"=> $item.panen_jumlah,
-        //             "kualitas_bagus"=> $item.panen_kualitas_a,
-        //             "kualitas_sedang"=> $item.panen_kualitas_b,
-        //             "kualitas_buruk"=> $item.panen_kualitas_c, 
-        //             "harga_panen"=> $item.panen_harga,
-        //             "created_at"=> $item.created_at,
-        //             "updated_at"=> $item.updated_at
-        //         ]
-        //     ]);
-        // }
+        foreach ($datamasterpetanis as $item) {
+            $client = new Client();
+            $api_url = "http://54.254.237.145:3000/API/postPetani";
+            // return dd($item->user_id);
+            $res = $client->post($api_url, [
+                'json' => [
+                    // identitas petani
+                    "id_petani"=> $item->user_id,
+                    "nama_petani"=> $item->pemilik_nama,
+                    "jeniskelamin_petani" => $item->pemilik_jeniskelamin,
+                    "tanggallahir_petani"=> $item->pemilik_tanggal_lahir,
+                    "kontak_petani"=> $item->pemilik_kontak,
+                    "pendidikan_petani"=> $item->pemilik_pendidikan,
+                    // identitas pengepul
+                    "nama_pengepul"=> $item->pengepul_nama,
+                    "kontak_pengepul"=> $item->pengepul_kontak,
+                    "kab_pengepul"=> $item->pengepul_kabupaten,
+                    "alamat_pengepul"=> $item->pengepul_alamat,
+                    // aktivitas petani
+                    "kab_petani"=> $item->kabupaten_nama, 
+                    "lokasi_sawah"=> $item->lokasisawah_keterangan,
+                    "waktu_tanam"=> $item->ks_waktu_tanam,
+                    "metode_pengairan"=> $item->ks_metode_pengairan,
+                    "sumber_modal"=> $item->ks_sumber_modal,
+                    "jumlah_modal"=> $item->ks_jumlah_modal,
+                    "status_lahan"=> $item->ks_status_lahan,
+                    "luas_lahan"=> $item->ks_luas_lahan,
+                    "jumlah_bibit"=> $item->ks_jumlah_bibit,
+                    "tanggal_semprot"=> $item->ks_pestisida_tgl_semprot,
+                    "jumlah_takaran_pestisida"=> $item->ks_pestisida_jumlah_takaran,
+                    "keterangan_pestisida"=> $item->ks_pestisida_keterangan,
+                    "nama_pestisida"=> $item->pestisida_nama,
+                    "tanggal_pupuk_abuk"=> $item->ks_pupuk_tgl_rabuk,
+                    "jumlah_takaran_pupuk"=> $item->ks_pupuk_jumlah_takaran,
+                    "jenis_pupuk"=> $item->jenispupuk_nama,
+                    "merek_pupuk"=> $item->merkpupuk_nama,
+                    "keterangan_pupuk"=> $item->ks_pupuk_keterangan,
+                    "tanggal_panen"=> $item->panen_tanggal,
+                    "jumlah_panen"=> $item->panen_jumlah,
+                    "kualitas_bagus"=> $item->panen_kualitas_a,
+                    "kualitas_sedang"=> $item->panen_kualitas_b,
+                    "kualitas_buruk"=> $item->panen_kualitas_c, 
+                    "harga_panen"=> $item->panen_harga,
+                    "created_at"=> $item->created_at,
+                    "updated_at"=> $item->updated_at
+                ]
+            ]);
+        }
 
-        return dd($datamasterpetanis);
+        // return dd($datamasterpetanis);
         // End Code Logic Send Data API Couch DB
-
-        // return redirect('/viewpanen')->with('success', 'Data berhasil dibackup');
+        return redirect('/viewpanen')->with('success', 'Data berhasil dibackup');
     }
 
     /**
