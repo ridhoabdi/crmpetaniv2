@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DatamasterpetaniController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\KegiatansawahController;
 use App\Http\Controllers\KspestisidaController;
@@ -87,6 +88,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/viewriwayatpanen', [RiwayatpanenController::class, 'index'])->name('viewriwayatpanen');
     Route::get('/pdfriwayatpanen/{id}', [RiwayatpanenController::class, 'pdfriwayatpanen'])->name('pdfriwayatpanen');
 
+    // Data Master petani
+    Route::get('/confirmbackup/{id}', [DatamasterpetaniController::class, 'create'])->name('confirmbackup');
+    Route::post('/storebackup', [DatamasterpetaniController::class, 'store']);
         
 });
 

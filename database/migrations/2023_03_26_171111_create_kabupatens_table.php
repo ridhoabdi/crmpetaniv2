@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('kabupatens', function (Blueprint $table) {
             $table->id();
             $table->string('kabupaten_nama');
-            $table->string('kabupaten_keterangan')->nullable();
             $table->string('kabupaten_kode')->nullable();
+            $table->string('kabupaten_keterangan')->nullable();
             $table->timestamps();
         });
     }

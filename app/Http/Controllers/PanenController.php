@@ -40,6 +40,7 @@ class PanenController extends Controller
                 ->join('kabupatens', 'lokasisawahs.kabupaten_id', '=', 'kabupatens.id')
                 ->select('kegiatansawahs.*', 'kabupatens.kabupaten_nama', 'lokasisawahs.lokasisawah_keterangan', 'kegiatansawahs.ks_panen')
                 ->where('kegiatansawahs.user_id', $user_id)
+                ->orderBy('ks_waktu_tanam', 'DESC')
                 ->get();
 
             // return dd($panens);

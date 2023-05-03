@@ -19,8 +19,6 @@ return new class extends Migration
             $table->bigInteger('pengepul_id');
             $table->bigInteger('lokasisawah_id');
             $table->bigInteger('kegiatansawah_id');
-            // $table->bigInteger('kspestisida_id');
-            // $table->bigInteger('kspupuk_id');
             $table->date('panen_tanggal');
             $table->float('panen_jumlah');
             $table->float('panen_kualitas_a')->nullable();

@@ -101,7 +101,7 @@ class RiwayatpanenController extends Controller
             ->where('kspupuks.user_id', $user_id)
             ->where('kegiatansawahs.ks_panen', 1)
             ->where('lokasisawahs.lokasisawah_status', 1)
-            // ->where('kspupuks.id', $id)
+            ->where('kspupuks.id', $id)
             ->orderBy('ks_pupuk_tgl_rabuk', 'DESC')
             ->get();
 
@@ -114,7 +114,7 @@ class RiwayatpanenController extends Controller
             ->where('kspestisidas.user_id', $user_id)
             ->where('kegiatansawahs.ks_panen', 1)
             ->where('lokasisawahs.lokasisawah_status', 1)
-            // ->where('kspestisidas.id', $id)
+            ->where('kspestisidas.id', $id)
             ->orderBy('ks_pestisida_tgl_semprot', 'DESC')
             ->get();
 

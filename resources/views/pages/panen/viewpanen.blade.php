@@ -75,17 +75,20 @@
                                     "<a href='/addpanen/{$panen->id}' class='btn btn-sm btn-outline-success mx-1'>" .
                                     "<i class='menu-icon mdi mdi-plus'></i> Hasil panen" .
                                     "</a>" .
-                                    "<a href='#' class='btn btn-sm btn-outline-warning mx-1'>" .
-                                    "<i class='menu-icon mdi mdi-pencil'></i> Edit panen" .
-                                    "</a>" .
-                                    "<input type='checkbox' id='verify-checkbox' value=1 name='verify-checkbox' onclick='isChecked()' class='mt-2 ms-3'>" .
-                                    "<p id='message' class='ms-1 mt-2'>Belum panen</p>" .
+                                    // "<input type='checkbox' id='verify-checkbox' value=1 name='verify-checkbox' onclick='isChecked()' class='mt-2 ms-3'>" .
+                                    // "<p id='message' class='ms-1 mt-2'>Belum panen</p>" .
                                     "</form>";
                             } else {
                                 echo "<input type='checkbox' id='verify-checkbox' onclick='isChecked()' checked disabled/>" .
-                                    "<p id='message'>panen</p>" .
-                                    "<a href='/addpanen/{$panen->id}' class='btn btn-sm btn-outline-success mx-1'>" .
-                                    "<i class='menu-icon mdi mdi-plus'></i> Masukkan hasil panen" .
+                                    "<p id='message' class='mt-3 me-2 ms-1'>Sudah Panen</p>" .
+                                    // "<a href='/addpanen/{$panen->id}' class='btn btn-sm btn-outline-success mx-1'>" .
+                                    // "<i class='menu-icon mdi mdi-plus'></i> Masukkan hasil panen" .
+                                    // "</a>".
+                                    "<a href='#' class='btn btn-sm btn-outline-warning mx-1'>" .
+                                    "<i class='menu-icon mdi mdi-pencil'></i> Edit panen" .
+                                    "</a>".
+                                    "<a href='/confirmbackup/{$panen->id}' class='btn btn-sm btn-outline-primary mx-1'>" .
+                                    "<i class='menu-icon mdi mdi-database'></i> Backup Data" .
                                     "</a>";
                             }
                             ?>

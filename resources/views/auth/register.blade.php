@@ -8,6 +8,19 @@
             <x-text-input id="pemilik_nama" class="block mt-1 w-full" type="text" name="pemilik_nama" :value="old('pemilik_nama')" required autofocus autocomplete="pemilik_nama" />
             <x-input-error :messages="$errors->get('pemilik_nama')" class="mt-2" />
         </div>
+
+        <!-- Jenis Kelamin -->
+        <div>
+            <x-input-label for="pemilik_jeniskelamin" :value="__('Jenis Kelamin')" class="mt-4"/>
+            <div class="">
+                <select id="pemilik_jeniskelamin" name="pemilik_jeniskelamin" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" required>
+                    <option value="" disabled selected>--- pilih jenis kelamin ---</option>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
+            </div>
+            <x-input-error :messages="$errors->get('pemilik_jeniskelamin')" class="mt-2" />
+        </div>
     
         <!-- Tanggal Lahir -->
         <div>
@@ -29,11 +42,12 @@
             <div class="">
                 <select id="pemilik_pendidikan" name="pemilik_pendidikan" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" required>
                     <option value="" disabled selected>--- pilih jenjang pendidikan ---</option>
-                    <option value="TK">TK</option>
+                    <option value="Tidak Lulus SD">Tidak Lulus SD</option>
                     <option value="SD">SD</option>
-                    <option value="SMP/sederajat">SMP/sederajat</option>
-                    <option value="SMA/sederajat">SMA/sederajat</option>
-                    <option value="S1/sederajat">S1/sederajat</option>
+                    <option value="SMP">SMP</option>
+                    <option value="SMA">SMA</option>
+                    <option value="Diploma">Diploma</option>
+                    <option value="Sarjana">Sarjana</option>
                 </select>
             </div>
             <x-input-error :messages="$errors->get('pemilik_pendidikan')" class="mt-2" />

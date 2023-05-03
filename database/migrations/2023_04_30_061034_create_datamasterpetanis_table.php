@@ -13,8 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('riwayatpanens', function (Blueprint $table) {
+        Schema::create('datamasterpetanis', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id');
+            $table->bigInteger('lokasisawah_id');
+            $table->bigInteger('kegiatansawah_id');
+            $table->bigInteger('kspupuk_id');
+            $table->bigInteger('kspestisida_id');
+            $table->bigInteger('panen_id');
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('riwayatpanens');
+        Schema::dropIfExists('datamasterpetanis');
     }
 };

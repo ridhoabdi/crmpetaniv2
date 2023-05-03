@@ -22,6 +22,7 @@ class User extends Authenticatable
         // 'email',
         // 'password',
         'pemilik_nama',
+        'pemilik_jeniskelamin',
         'pemilik_tanggal_lahir',
         'pemilik_kontak',
         'pemilik_pendidikan',

@@ -64,39 +64,136 @@
 </div> -->
   
 
-<!-- <p class="h3 fw-bold mt-4">Prediksi</p>
-<p class="lead">Silahkan tambahkan Kegiatan Sawah</p> -->
-  <!-- <div class="row">
+<p class="h3 fw-bold mt-4">Aktivitas Petani Bawang Merah</p>
+<p class="lead">Silahkan mengisi rangkaian kegiatan pertanian bawang dengan terstruktur untuk memperoleh hasil panen yang optimal</p>
+<div class="row mt-2">
     <div class="col">
-      <div class="card bg-info">
-        <div class="card-body">
-          <p class="h3 fw-bold text-white">Prediksi Kapan Pupuk</p>
-          <p class="lead text-white">Tgl :</p>
-        </div>
-      </div>
+        <a href="{{ url('/viewlokasisawah/') }}" style="text-decoration: none;">
+            <div class="card" style="position: relative; text-align: center; background-color: #3be102;">
+                <div class="card-body" style="display: flex; align-items: center; justify-content: center;">
+                    <div style="position: absolute; top: 0; left: 0; width: 40px; height: 40px; background-color: #7b6bf4; color: #fff; font-weight: bold; font-size: 20px; text-align: center; line-height: 30px; border-radius: 5px;">
+                        1
+                    </div>
+                    <h3 class="fw-medium text-dark mb-0 mt-2" style="font-size: 23px;">Lokasi Sawah</h3>
+                </div>
+            </div>
+        </a>
     </div>
-  
     <div class="col">
-      <div class="card bg-secondary">
-        <div class="card-body">
-          <p class="h3 fw-bold text-white">Prediksi Kapan Pestisida</p>
-          <p class="lead text-white">Tgl :</p>
-        </div>
-      </div>
+        <a href="{{ url('/viewkegiatansawah/') }}" style="text-decoration: none;">
+            <div class="card" style="position: relative; text-align: center; background-color: #ff7ff0;">
+                <div class="card-body" style="display: flex; align-items: center; justify-content: center;">
+                    <div style="position: absolute; top: 0; left: 0; width: 40px; height: 40px; background-color: #7b6bf4; color: #fff; font-weight: bold; font-size: 20px; text-align: center; line-height: 30px; border-radius: 5px;">
+                        2
+                    </div>
+                    <h3 class="fw-medium text-dark mb-0 mt-2" style="font-size: 23px;">Penanaman Bawang</h3>
+                </div>
+            </div>
+        </a>
     </div>
-  
     <div class="col">
-      <div class="card bg-warning">
-        <div class="card-body">
-          <p class="h3 fw-bold text-white">Prediksi Kapan Panen</p>
-          <p class="lead text-white">Tgl :</p>
-        </div>
-      </div>
+        <a href="{{ url('/viewkegiatanpupuk/') }}" style="text-decoration: none;">
+            <div class="card" style="position: relative; text-align: center; background-color: #ffd700;">
+                <div class="card-body" style="display: flex; align-items: center; justify-content: center;">
+                    <div style="position: absolute; top: 0; left: 0; width: 40px; height: 40px; background-color: #7b6bf4; color: #fff; font-weight: bold; font-size: 20px; text-align: center; line-height: 30px; border-radius: 5px;">
+                        3
+                    </div>
+                    <h3 class="fw-medium text-dark mb-0 mt-2" style="font-size: 23px;">Kegiatan Pupuk</h3>
+                </div>
+            </div>
+        </a>
     </div>
-  </div> -->
 </div>
-<p class="h3 fw-bold mt-4">Data IoT Sekarang</p>
-<p class="lead">Silahkan tambahkan lokasi jika data Sensor IoT belum ada</p>
+<div class="row mt-4">
+    <div class="col">
+        <a href="{{ url('/viewkegiatanpestisida/') }}" style="text-decoration: none;">
+            <div class="card" style="position: relative; text-align: center; background-color: #96cbff;">
+                <div class="card-body" style="display: flex; align-items: center; justify-content: center;">
+                    <div style="position: absolute; top: 0; left: 0; width: 40px; height: 40px; background-color: #7b6bf4; color: #fff; font-weight: bold; font-size: 20px; text-align: center; line-height: 30px; border-radius: 5px;">
+                        4
+                    </div>
+                    <h3 class="fw-medium text-dark mb-0 mt-2" style="font-size: 23px;">Kegiatan Pestisida</h3>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col">
+        <a href="{{ url('/viewpanen/') }}" style="text-decoration: none;">
+            <div class="card" style="position: relative; text-align: center; background-color: #ff9899;">
+                <div class="card-body" style="display: flex; align-items: center; justify-content: center;">
+                    <div style="position: absolute; top: 0; left: 0; width: 40px; height: 40px; background-color: #7b6bf4; color: #fff; font-weight: bold; font-size: 20px; text-align: center; line-height: 30px; border-radius: 5px;">
+                        5
+                    </div>
+                    <h3 class="fw-medium text-dark mb-0 mt-2" style="font-size: 23px;">Hasil Panen</h3>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col">
+        <a href="{{ url('/viewriwayatpanen') }}" style="text-decoration: none;">
+            <div class="card" style="position: relative; text-align: center; background-color: #edc9af;">
+                <div class="card-body" style="display: flex; align-items: center; justify-content: center;">
+                    <div style="position: absolute; top: 0; left: 0; width: 40px; height: 40px; background-color: #7b6bf4; color: #fff; font-weight: bold; font-size: 20px; text-align: center; line-height: 30px; border-radius: 5px;">
+                        6
+                    </div>
+                    <h3 class="fw-medium text-dark mb-0 mt-2" style="font-size: 23px;">Riwayat Panen</h3>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<style>
+  .card:hover {
+    cursor: pointer;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); */
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .card:active {
+    transform: scale(1.01);
+    transition: all 0.1s ease-in-out;
+  }
+
+  .card-body {
+    height: 150px;
+  }
+
+</style>
+
+
+<!-- <div class="row">
+<div class="col">
+    <div class="card bg-">
+    <div class="card-body">
+        <p class="h3 fw-bold text-white">Prediksi Kapan Pupuk</p>
+        <p class="lead text-white">Tgl :</p>
+    </div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card bg-secondary">
+    <div class="card-body">
+        <p class="h3 fw-bold text-white">Prediksi Kapan Pestisida</p>
+        <p class="lead text-white">Tgl :</p>
+    </div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card bg-warning">
+    <div class="card-body">
+        <p class="h3 fw-bold text-white">Prediksi Kapan Panen</p>
+        <p class="lead text-white">Tgl :</p>
+    </div>
+    </div>
+</div>
+</div> -->
+</div>
+<p class="h3 fw-bold mt-5">Data Sensor IoT Sekarang</p>
+<p class="lead">Silahkan tambahkan lokasi jika data sensor IoT belum ada</p>
 <div class="row">
     {{-- @foreach ($data as $item['iot']); --}}
         <div class="container py-3">
@@ -116,7 +213,7 @@
                         <h2 class="h6 font-weight-bold text-center mb-4">Data Kecepatan Angin</h2>
 
                         <!-- Progress bar 1 -->
-                       <div class="progress mx-auto"
+                       <!-- <div class="progress mx-auto"
                             data-value=10>
                             <span class="progress-left">
                                 <span class="progress-bar border-primary"></span>
@@ -127,9 +224,10 @@
                             <div
                                 class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
                                 <div class="h2 font-weight-bold">
-                                    10<sup class="small">km/h</sup></div>
+                                    10<sup class="small">km/h</sup>
                                 </div>
-                        </div> 
+                            </div>
+                        </div>  -->
                     </div>
                 </div>
 
@@ -204,7 +302,7 @@
 
                 <div class="col-xl-3 col-lg-6 mb-4">
                     <div class="bg-white rounded-lg p-5 shadow">
-                        <h2 class="h6 font-weight-bold text-center mb-4">datakelembabantanah</h2>
+                        <h2 class="h6 font-weight-bold text-center mb-4">Data Kelembaban Tanah</h2>
 
                         <!-- Progress bar 3 -->
                         {{-- <div class="progress mx-auto"
@@ -226,55 +324,37 @@
                 </div>
 
                 <div class="col-xl-3 col-lg-6 mb-4">
-                    {{-- <div class="bg-white rounded-lg p-5 shadow">
-                        <h2 class="h6 font-weight-bold text-center mb-4">Data Ph tanah</h2>
+                    <div class="bg-white rounded-lg p-5 shadow">
+                        <h2 class="h6 font-weight-bold text-center mb-4">Data pH Tanah</h2>
 
-                        <!-- Progress bar 4 -->
-                        <div class="progress mx-auto" data-value={{ $item['iot']['iot']['dataphtanah'] }}>
+                        <!-- Progress bar 3 -->
+                        {{-- <div class="progress mx-auto"
+                            data-value={{ $item['iot']['iot']['dataphtanah'] }}>
                             <span class="progress-left">
-                                <span class="progress-bar border-warning"></span>
+                                <span class="progress-bar border-success"></span>
                             </span>
                             <span class="progress-right">
                                 <span class="progress-bar border-primary"></span>
                             </span>
                             <div
                                 class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-                                <div class="h2 font-weight-bold">{{ $item['iot']['iot']['dataphtanah'] }} <sup
-                                        class="small">pH</sup></div>
+                                <div class="h2 font-weight-bold">
+                                    {{ $item['iot']['iot']['dataphtanah'] }}<sup class="small">c</sup>
+                                </div>
                             </div>
-                        </div>
-                    </div> --}}
-                </div>
-
-                <div class="col-xl-3 col-lg-6 mb-4">
-                    <div class="bg-white  p-5 shadow">
-                        {{-- <div class="card-body">
-                            <p class="h6 font-weight-bold text-center mb-4">Status Alat<br></p>
-
-                            @if ($item['iot']['iot']['statusalat'] == 1)
-                                <center>
-                                    <p class="h2 font-weight-bold">Hidup</p>
-                                </center>
-                            @else
-                                <center>
-                                    <p class="h2 font-weight-bold">Mati </p>
-                                </center>
-                            @endif
                         </div> --}}
                     </div>
                 </div>
 
                 <div class="col-xl-3 col-lg-6 mb-4">
-                    <div class="bg-white  p-5 shadow">
-                        {{-- <div class="card-body">
-                            <p class="h6 font-weight-bold text-center mb-4">Alamat Sensor Iot<br></p>
+                    <div class="bg-white rounded-lg p-5 shadow">
+                        <h2 class="h6 font-weight-bold text-center mb-4">Status Alat</h2>
+                    </div>
+                </div>
 
-                            <center>
-                                <p class="h2 font-weight-bold">{{ $item['iot']['iot']['alamat'] }}</p>
-                            </center>
-
-
-                        </div> --}}
+                <div class="col-xl-3 col-lg-6 mb-4">
+                    <div class="bg-white rounded-lg p-5 shadow">
+                        <h2 class="h6 font-weight-bold text-center mb-4">Alamat Sensor IoT</h2>
                     </div>
                 </div>
             </div>

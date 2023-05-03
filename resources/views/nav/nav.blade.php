@@ -61,7 +61,7 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ url('/viewpanen/') }}">
                 <i class="menu-icon mdi mdi-sack"></i>
-                <span class="menu-title">Panen</span>
+                <span class="menu-title">Hasil Panen</span>
             </a>
         </li>
         <li class="nav-item">
