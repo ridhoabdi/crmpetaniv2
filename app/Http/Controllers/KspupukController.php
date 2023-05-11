@@ -33,6 +33,7 @@ class KspupukController extends Controller
                 ->join('kabupatens', 'lokasisawahs.kabupaten_id', '=', 'kabupatens.id')
                 ->select('kspupuks.*', 'kabupatens.kabupaten_nama', 'lokasisawahs.lokasisawah_keterangan', 'jenispupuks.jenispupuk_nama', 'merkpupuks.merkpupuk_nama', 'kegiatansawahs.ks_waktu_tanam')
                 ->where('kspupuks.user_id', $user_id)
+                ->where('lokasisawahs.lokasisawah_status', 0)
                 ->where('kegiatansawahs.ks_panen', 0)
                 ->orderBy('ks_pupuk_tgl_rabuk', 'DESC')
                 ->get();
@@ -67,6 +68,7 @@ class KspupukController extends Controller
             ->orderBy('kabupaten_nama', 'ASC')
             ->orderBy('lokasisawah_keterangan', 'ASC')
             ->where('lokasisawahs.user_id', $user_id)
+            ->where('lokasisawahs.lokasisawah_status', 0)
             ->get();
 
         $jenispupuks = DB::table('jenispupuks')

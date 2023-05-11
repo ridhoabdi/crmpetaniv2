@@ -32,6 +32,7 @@ class KspestisidaController extends Controller
                 ->join('kabupatens', 'lokasisawahs.kabupaten_id', '=', 'kabupatens.id')
                 ->select('kspestisidas.*', 'kabupatens.kabupaten_nama', 'lokasisawahs.lokasisawah_keterangan', 'pestisidas.pestisida_nama', 'kegiatansawahs.ks_waktu_tanam')
                 ->where('kspestisidas.user_id', $user_id)
+                ->where('lokasisawahs.lokasisawah_status', 0)
                 ->where('kegiatansawahs.ks_panen', 0)
                 ->orderBy('ks_pestisida_tgl_semprot', 'DESC')
                 ->get();
@@ -56,6 +57,7 @@ class KspestisidaController extends Controller
             ->orderBy('kabupaten_nama', 'ASC')
             ->orderBy('lokasisawah_keterangan', 'ASC')
             ->where('lokasisawahs.user_id', $user_id)
+            ->where('lokasisawahs.lokasisawah_status', 0)
             ->get();
 
         $pestisidas = DB::table('pestisidas')

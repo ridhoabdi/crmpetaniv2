@@ -57,7 +57,7 @@
                             </tr>
                             <tr>
                                 <th style="width: 200px;">Jumlah Takaran Pupuk</th>
-                                <td>{{ number_format($kspupuk->ks_pupuk_jumlah_takaran) }} liter</td>
+                                <td>{{ number_format($kspupuk->ks_pupuk_jumlah_takaran) }} kg</td>
                             </tr>
                             <tr>
                                 <th style="width: 200px;">Keterangan Kegiatan</th>

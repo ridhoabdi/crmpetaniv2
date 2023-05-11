@@ -28,6 +28,7 @@ class KegiatansawahController extends Controller
                 ->join('kabupatens', 'lokasisawahs.kabupaten_id', '=', 'kabupatens.id')
                 ->select('kegiatansawahs.*', 'kabupatens.kabupaten_nama', 'lokasisawahs.lokasisawah_keterangan')
                 ->where('kegiatansawahs.user_id', $user_id)
+                ->where('lokasisawahs.lokasisawah_status', 0)
                 ->where('kegiatansawahs.ks_panen', 0)
                 ->get();
 
@@ -51,6 +52,7 @@ class KegiatansawahController extends Controller
             ->orderBy('kabupaten_nama', 'ASC')
             ->orderBy('lokasisawah_keterangan', 'ASC')
             ->where('lokasisawahs.user_id', $user_id)
+            ->where('lokasisawahs.lokasisawah_status', 0)
             ->get();
 
         $data['lokasisawahs'] = $lokasisawahs;
