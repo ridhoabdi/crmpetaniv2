@@ -20,7 +20,7 @@
             <div class="form-group mt-3">
                 <label for="lokasisawah_id">Alamat Lokasi Sawah</label>
                 <select class="form-control form-control-lg  @error('lokasisawah_id') is-invalid @enderror" id="lokasisawah_id" name="lokasisawah_id">
-                    <option selected disabled>--- pilih alamat lokasi sawah ---</option>
+                    <option selected disabled>--- pilih Keterangan Lokasi Sawah ---</option>
                     @foreach ($lokasisawahs as $lokasi)
                         <option value="{{ $lokasi->id }}">{{ $lokasi->lokasisawah_keterangan }}</option>
                     @endforeach
@@ -79,6 +79,20 @@
 
                 @error('ks_metode_pengairan')
                     <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <!-- Varietas Bawang -->
+            <div class="form-group">
+                <label for="varietasbawang_id">Varietas Bawang Merah</label>
+                <select name="varietasbawang_id" id="varietasbawang_id" class="form-control form-control-lg @error('varietasbawang_id') is-invalid @enderror">
+                    <option selected disabled>--- pilih Varietas Bawang Merah yang digunakan ---</option>
+                    @foreach ($varietasbawangs as $varietasbawang)
+                        <option value="{{ $varietasbawang->id }}">{{ $varietasbawang->varietasbawang_nama }}</option>
+                    @endforeach
+                </select>
+                @error('varietasbawang_id')
+                    <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
 

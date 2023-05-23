@@ -53,7 +53,7 @@
                             </tr>
                             <tr>
                                 <th style="width: 200px;">Jumlah Takaran Pestisida</th>
-                                <td>{{ number_format($kspestisida->ks_pestisida_jumlah_takaran) }} liter</td>
+                                <td>{{ number_format($kspestisida->ks_pestisida_jumlah_takaran, 1) }} liter</td>
                             </tr>
                             <tr>
                                 <th style="width: 200px;">Keterangan Kegiatan</th>

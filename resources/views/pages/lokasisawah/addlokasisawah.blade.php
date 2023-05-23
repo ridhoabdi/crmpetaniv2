@@ -50,7 +50,7 @@
 
             <!-- Alamat Lokasi Sawah -->
             <div class="form-group">
-                <label for="lokasisawah_keterangan">Alamat Lokasi Sawah</label>
+                <label for="lokasisawah_keterangan">Keterangan Lokasi Sawah</label>
                 <textarea class="form-control form-control-lg" name="lokasisawah_keterangan" id="lokasisawah_keterangan" rows="3"></textarea>
             </div>
 

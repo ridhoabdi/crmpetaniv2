@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pestisidas', function (Blueprint $table) {
+        Schema::create('varietasbawangs', function (Blueprint $table) {
             $table->id();
-            $table->string('pestisida_nama');
-            $table->string('pestisida_keterangan')->nullable();
+            $table->string('varietasbawang_nama');
+            $table->string('varietasbawang_keterangan')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pestisidas');
+        Schema::dropIfExists('varietasbawangs');
     }
 };

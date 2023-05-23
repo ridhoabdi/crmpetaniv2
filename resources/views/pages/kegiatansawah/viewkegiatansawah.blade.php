@@ -40,39 +40,43 @@
                     <div class="col-md-8">
                         <table>
                             <tr>
-                                <th style="width: 180px;">Waktu Tanam</th>
+                                <th style="width: 200px;">Waktu Tanam</th>
                                 <td>{{ \Carbon\Carbon::parse($kegiatansawah->ks_waktu_tanam)->translatedFormat('l, d F Y') }}</td>
                             </tr>
                             <tr>
-                                <th style="width: 180px;">Metode Pengairan</th>
+                                <th style="width: 200px;">Metode Pengairan</th>
                                 <td>{{ $kegiatansawah->ks_metode_pengairan}}</td>
                             </tr>
                             <tr>
-                                <th style="width: 180px;">Jumlah Bibit</th>
+                                <th style="width: 200px;">Varietas Bawang Merah</th>
+                                <td>{{ $kegiatansawah->varietasbawang_nama }}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 200px;">Jumlah Bibit</th>
                                 <td>{{ number_format($kegiatansawah->ks_jumlah_bibit, 0, ',', '.') }} kg</td>
                             </tr>
                             <tr>
-                                <th style="width: 180px;">Luas Lahan</th>
+                                <th style="width: 200px;">Luas Lahan</th>
                                 <td>{{ number_format($kegiatansawah->ks_luas_lahan, 0, ',', '.') }} m<sup>2</sup></td>
                             </tr>
                             <tr>
-                                <th style="width: 180px;">Status Lahan</th>
+                                <th style="width: 200px;">Status Lahan</th>
                                 <td>{{ $kegiatansawah->ks_status_lahan}}</td>
                             </tr>
                             <tr>
-                                <th style="width: 180px;">Sumber Modal</th>
+                                <th style="width: 200px;">Sumber Modal</th>
                                 <td>{{ $kegiatansawah->ks_sumber_modal}}</td>
                             </tr>
                             <tr>
-                                <th style="width: 180px;">Jumlah Modal</th>
+                                <th style="width: 200px;">Jumlah Modal</th>
                                 <td>{{ 'Rp ' . number_format($kegiatansawah->ks_jumlah_modal, 0, ',', '.') }}</td>
                             </tr>
                             <tr>
-                                <th style="width: 180px;">Kabupaten</th>
+                                <th style="width: 200px;">Kabupaten</th>
                                 <td>{{ $kegiatansawah->kabupaten_nama }}</td>
                             </tr>
                             <tr>
-                                <th style="width: 180px;">Alamat Lokasi Sawah</th>
+                                <th style="width: 200px;">Keterangan Lokasi Sawah</th>
                                 <td>{{ $kegiatansawah->lokasisawah_keterangan}}</td>
                             </tr>
                         </table>

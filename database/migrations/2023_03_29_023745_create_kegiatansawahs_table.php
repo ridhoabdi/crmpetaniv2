@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('user_id');
             $table->bigInteger('lokasisawah_id');
+            $table->bigInteger('varietasbawang_id');
             $table->string('ks_metode_pengairan');
             $table->string('ks_sumber_modal');
             $table->float('ks_luas_lahan');

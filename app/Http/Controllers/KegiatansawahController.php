@@ -26,7 +26,8 @@ class KegiatansawahController extends Controller
             $kegiatansawahs = DB::table('kegiatansawahs')
                 ->join('lokasisawahs', 'kegiatansawahs.lokasisawah_id', '=', 'lokasisawahs.id')
                 ->join('kabupatens', 'lokasisawahs.kabupaten_id', '=', 'kabupatens.id')
-                ->select('kegiatansawahs.*', 'kabupatens.kabupaten_nama', 'lokasisawahs.lokasisawah_keterangan')
+                ->join('varietasbawangs', 'kegiatansawahs.varietasbawang_id', '=', 'varietasbawangs.id')
+                ->select('kegiatansawahs.*', 'kabupatens.kabupaten_nama', 'lokasisawahs.lokasisawah_keterangan', 'varietasbawangs.varietasbawang_nama')
                 ->where('kegiatansawahs.user_id', $user_id)
                 ->where('lokasisawahs.lokasisawah_status', 0)
                 ->where('kegiatansawahs.ks_panen', 0)
@@ -55,7 +56,12 @@ class KegiatansawahController extends Controller
             ->where('lokasisawahs.lokasisawah_status', 0)
             ->get();
 
+        $varietasbawangs = DB::table('varietasbawangs')
+            ->orderBy('varietasbawang_nama', 'ASC')
+            ->get();
+
         $data['lokasisawahs'] = $lokasisawahs;
+        $data['varietasbawangs'] = $varietasbawangs;
 
         // return dd($data);
         return view('/pages/kegiatansawah/addkegiatansawah', $data);
@@ -115,6 +121,7 @@ class KegiatansawahController extends Controller
         // form validasi
         $request->validate([
             'lokasisawah_id' => 'required|exists:lokasisawahs,id',
+            'varietasbawang_id' => 'required|exists:varietasbawangs,id',
             'ks_waktu_tanam' => 'required',
             'ks_metode_pengairan' => 'required|min:1',
             'ks_jumlah_bibit' => 'required',
@@ -124,6 +131,7 @@ class KegiatansawahController extends Controller
             'ks_jumlah_modal' => 'required'
         ], [
             'lokasisawah_id' => '*Field ini wajib diisi',
+            'varietasbawang_id' => '*Field ini wajib diisi',
             'ks_waktu_tanam' => '*Field ini wajib diisi',
             'ks_metode_pengairan' => '*Field ini wajib diisi',
             'ks_jumlah_bibit' => '*Field ini wajib diisi',
@@ -136,6 +144,7 @@ class KegiatansawahController extends Controller
         $kegiatansawahs = Kegiatansawah::create([
             'user_id' => $user_id,
             'lokasisawah_id' => $request->lokasisawah_id,
+            'varietasbawang_id' => $request->varietasbawang_id,
             'ks_waktu_tanam' => $request->ks_waktu_tanam,
             'ks_metode_pengairan' => $input_ks_metode_pengairan,
             'ks_jumlah_bibit' => $dataHasiljumlahbibit,
@@ -185,7 +194,12 @@ class KegiatansawahController extends Controller
             ->where('lokasisawahs.user_id', $user_id)
             ->get();
 
+        $varietasbawangs = DB::table('varietasbawangs')
+            ->orderBy('varietasbawang_nama', 'ASC')
+            ->get();
+
         $data['lokasisawahs'] = $lokasisawahs;
+        $data['varietasbawangs'] = $varietasbawangs;
         $data['kegiatansawahs'] = $kegiatansawahs;
 
         // return dd($data);
@@ -249,6 +263,7 @@ class KegiatansawahController extends Controller
 
         $request->validate([
             'lokasisawah_id' => 'required|exists:lokasisawahs,id',
+            'varietasbawang_id' => 'required|exists:varietasbawangs,id',
             'ks_waktu_tanam' => 'required',
             'ks_metode_pengairan' => 'required|min:1',
             'ks_jumlah_bibit' => 'required',
@@ -258,6 +273,7 @@ class KegiatansawahController extends Controller
             'ks_jumlah_modal' => 'required'
         ], [
             'lokasisawah_id' => '*Field ini wajib diisi',
+            'varietasbawang_id' => '*Field ini wajib diisi',
             'ks_waktu_tanam' => '*Field ini wajib diisi',
             'ks_metode_pengairan' => '*Field ini wajib diisi',
             'ks_jumlah_bibit' => '*Field ini wajib diisi',
@@ -269,6 +285,7 @@ class KegiatansawahController extends Controller
 
         $kegiatansawahs->update([
             'lokasisawah_id' => $request->lokasisawah_id,
+            'varietasbawang_id' => $request->varietasbawang_id,
             'ks_waktu_tanam' => $request->ks_waktu_tanam,
             'ks_metode_pengairan' => $input_ks_metode_pengairan,
             'ks_jumlah_bibit' => $dataHasiljumlahbibit,
