@@ -40,37 +40,37 @@
                     <div class="col-md-8">
                         <table>
                             <tr>
-                                <th style="width: 200px;">Waktu Tanam</th>
-                                <td>{{ \Carbon\Carbon::parse($kspupuk->ks_waktu_tanam)->translatedFormat('l, d F Y') }}</td>
+                                <th>Keterangan Lokasi Sawah</th>
+                                <td>{{ $kspupuk->lokasisawah_keterangan}}</td>
                             </tr>
                             <tr>
-                                <th style="width: 200px;">Tanggal Rabuk Pupuk</th>
-                                <td>{{ \Carbon\Carbon::parse($kspupuk->ks_pupuk_tgl_rabuk)->translatedFormat('l, d F Y') }}</td>
-                            </tr>
-                            <tr>
-                                <th style="width: 200px;">Jenis Pupuk</th>
-                                <td>{{ $kspupuk->jenispupuk_nama}}</td>
-                            </tr>
-                             <tr>
-                                <th style="width: 200px;">Merk Pupuk</th>
-                                <td>{{ $kspupuk->merkpupuk_nama}}</td>
-                            </tr>
-                            <tr>
-                                <th style="width: 200px;">Jumlah Takaran Pupuk</th>
-                                <td>{{ number_format($kspupuk->ks_pupuk_jumlah_takaran) }} kg</td>
-                            </tr>
-                            <tr>
-                                <th style="width: 200px;">Keterangan Kegiatan</th>
-                                <td>{{ $kspupuk->ks_pupuk_keterangan ? $kspupuk->ks_pupuk_keterangan : '-' }}</td>
-
-                            </tr>
-                            <tr>
-                                <th style="width: 200px;">Kabupaten</th>
+                                <th>Kabupaten</th>
                                 <td>{{ $kspupuk->kabupaten_nama }}</td>
                             </tr>
                             <tr>
-                                <th style="width: 200px;">Alamat Lokasi Sawah</th>
-                                <td>{{ $kspupuk->lokasisawah_keterangan}}</td>
+                                <th>Waktu Tanam</th>
+                                <td>{{ \Carbon\Carbon::parse($kspupuk->ks_waktu_tanam)->translatedFormat('l, d F Y') }}</td>
+                            </tr>
+                            <tr>
+                                <th>Tanggal Rabuk Pupuk</th>
+                                <td>{{ \Carbon\Carbon::parse($kspupuk->ks_pupuk_tgl_rabuk)->translatedFormat('l, d F Y') }}</td>
+                            </tr>
+                            <tr>
+                                <th>Jenis Pupuk</th>
+                                <td>{{ $kspupuk->jenispupuk_nama}}</td>
+                            </tr>
+                             <tr>
+                                <th>Merk Pupuk</th>
+                                <td>{{ $kspupuk->merkpupuk_nama}}</td>
+                            </tr>
+                            <tr>
+                                <th>Jumlah Takaran Pupuk</th>
+                                <td>{{ number_format($kspupuk->ks_pupuk_jumlah_takaran) }} kg</td>
+                            </tr>
+                            <tr>
+                                <th>Keterangan Kegiatan Pupuk</th>
+                                <td>{{ $kspupuk->ks_pupuk_keterangan ? $kspupuk->ks_pupuk_keterangan : '-' }}</td>
+
                             </tr>
                         </table>
                     </div>

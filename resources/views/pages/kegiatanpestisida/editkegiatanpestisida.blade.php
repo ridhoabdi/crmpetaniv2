@@ -3,8 +3,8 @@
 @section('container')
 
 <div class="row justify-content-center">
-    <div class="col-8">
-        <div class="card-header">
+    <div class="col-8" style="background-color: #ffffff;">
+        <div class="card-header mt-3">
             <a href="/viewkegiatanpestisida" class="btn btn-sm btn-outline-secondary mt-1">
                 <i class="menu-icon mdi mdi-arrow-left"></i>
             </a>
@@ -19,9 +19,9 @@
 
             <!-- Alamat Lokasi Sawah -->
             <div class="form-group mt-3">
-                <label for="lokasisawah_id">Alamat Lokasi Sawah</label>
+                <label for="lokasisawah_id">Keterangan Lokasi Sawah *</label>
                 <select class="form-control form-control-lg  @error('lokasisawah_id') is-invalid @enderror" id="lokasisawah_id" name="lokasisawah_id">
-                    <option selected disabled>--- pilih alamat lokasi sawah ---</option>
+                    <option selected disabled>--- pilih Keterangan Lokasi Sawah ---</option>
                     @foreach ($lokasisawahs as $lokasi)
                         <option value="{{ $lokasi->id }}" {{ $lokasi->id == $kspestisidas->lokasisawah_id ? 'selected' : '' }}>{{ $lokasi->lokasisawah_keterangan }}</option>
                     @endforeach
@@ -33,7 +33,7 @@
 
             <!-- Kabupaten -->
             <div class="form-group">
-                <label for="lokasisawah_id">Kabupaten</label>
+                <label for="lokasisawah_id">Kabupaten *</label>
                 <select class="form-control form-control-lg @error('lokasisawah_id') is-invalid @enderror" id="lokasisawah_id" name="kabupaten_nama">
                     <option selected disabled>--- pilih Kabupaten ---</option>
                     @foreach ($lokasisawahs as $lokasi)
@@ -47,9 +47,9 @@
 
             <!-- Waktu Tanam -->
             <div class="form-group">
-                <label for="kegiatansawah_id">Waktu Tanam</label>
+                <label for="kegiatansawah_id">Waktu Tanam *</label>
                 <select class="form-control form-control-lg @error('kegiatansawah_id') is-invalid @enderror" id="kegiatansawah_id" name="kegiatansawah_id">
-                    <option selected disabled>--- pilih waktu tanam ---</option>
+                    <option selected disabled>--- pilih Waktu Tanam ---</option>
                     @foreach ($kegiatansawahs as $kegiatansawah)
                         <option value="{{ $kegiatansawah->id }}" {{ $kegiatansawah->id == $kspestisidas->kegiatansawah_id ? 'selected' : '' }}>{{ $kegiatansawah->ks_waktu_tanam }}</option>
                     @endforeach
@@ -72,9 +72,9 @@
 
             <!-- Nama Pestisida -->
             <div class="form-group">
-                <label for="pestisida_id">Nama Pestisida</label>
+                <label for="pestisida_id">Nama Pestisida *</label>
                 <select class="form-control form-control-lg @error('pestisida_id') is-invalid @enderror" id="pestisida_id" name="pestisida_id">
-                    <option selected disabled>--- pilih nama pestisida ---</option>
+                    <option selected disabled>--- pilih nama Pestisida ---</option>
                     @foreach ($pestisidas as $pestisida)
                         <option value="{{ $pestisida->id }}" {{ $pestisida->id == $kspestisidas->pestisida_id ? 'selected' : '' }}>{{ $pestisida->pestisida_nama }}</option>
                     @endforeach
@@ -109,7 +109,7 @@
 
             <!-- Keterangan Kegiatan Pestisida -->
             <div class="form-group">
-                <label for="ks_pestisida_keterangan">Keterangan Kegiatan</label>
+                <label for="ks_pestisida_keterangan">Keterangan Kegiatan Pestisida</label>
                 <textarea class="form-control form-control-lg" name="ks_pestisida_keterangan" id="ks_pestisida_keterangan" rows="3">{{ $kspestisidas->ks_pestisida_keterangan }}</textarea>
             </div>
 

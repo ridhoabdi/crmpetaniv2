@@ -3,8 +3,8 @@
 @section('container')
 
 <div class="row justify-content-center">
-    <div class="col-8">
-        <div class="card-header">
+    <div class="col-8" style="background-color: #ffffff;">
+        <div class="card-header mt-3">
             <a href="/viewkegiatanpupuk" class="btn btn-sm btn-outline-secondary mt-1">
                 <i class="menu-icon mdi mdi-arrow-left"></i>
             </a>
@@ -18,9 +18,9 @@
 
             <!-- Alamat Lokasi Sawah -->
             <div class="form-group mt-3">
-                <label for="lokasisawah_id">Alamat Lokasi Sawah</label>
+                <label for="lokasisawah_id">Keterangan Lokasi Sawah *</label>
                 <select class="form-control form-control-lg  @error('lokasisawah_id') is-invalid @enderror" id="lokasisawah_id" name="lokasisawah_id">
-                    <option selected disabled>--- pilih alamat lokasi sawah ---</option>
+                    <option selected disabled>--- pilih Keterangan Lokasi Sawah ---</option>
                     @foreach ($lokasisawahs as $lokasi)
                         <option value="{{ $lokasi->id }}">{{ $lokasi->lokasisawah_keterangan }}</option>
                     @endforeach
@@ -32,7 +32,7 @@
 
             <!-- Kabupaten -->
             <div class="form-group">
-                <label for="lokasisawah_id">Kabupaten</label>
+                <label for="lokasisawah_id">Kabupaten *</label>
                 <select class="form-control form-control-lg @error('lokasisawah_id') is-invalid @enderror" id="lokasisawah_id" name="kabupaten_nama">
                     <option selected disabled>--- pilih Kabupaten ---</option>
                     @foreach ($lokasisawahs as $lokasi)
@@ -46,7 +46,7 @@
 
             <!-- Waktu Tanam -->
             <div class="form-group mt-3">
-                <label for="kegiatansawah_id">Waktu Tanam</label>
+                <label for="kegiatansawah_id">Waktu Tanam *</label>
                 <select class="form-control form-control-lg  @error('kegiatansawah_id') is-invalid @enderror" id="kegiatansawah_id" name="kegiatansawah_id">
                     <option selected disabled>--- pilih waktu tanam ---</option>
                     @foreach ($kegiatansawahs as $kegiatansawah)

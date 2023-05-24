@@ -3,8 +3,8 @@
 @section('container')
 
 <div class="row justify-content-center">
-    <div class="col-8">
-        <div class="card-header">
+    <div class="col-8" style="background-color: #ffffff;">
+        <div class="card-header mt-3">
             <a href="/viewkegiatanpupuk" class="btn btn-sm btn-outline-secondary mt-1">
                 <i class="menu-icon mdi mdi-arrow-left"></i>
             </a>
@@ -17,11 +17,12 @@
             @csrf
             @method('PUT')
 
-            <!-- Alamat Lokasi Sawah -->
+            <!-- Keterangan Lokasi Sawah -->
             <div class="form-group mt-3">
-                <label for="lokasisawah_id">Alamat Lokasi Sawah</label>
+                <label for="lokasisawah_id">Keterangan Lokasi Sawah *</label>
+
                 <select class="form-control form-control-lg  @error('lokasisawah_id') is-invalid @enderror" id="lokasisawah_id" name="lokasisawah_id">
-                    <option selected disabled>--- pilih alamat lokasi sawah ---</option>
+                    <option selected disabled>--- pilih Keterangan Lokasi Sawah ---</option>
                     @foreach ($lokasisawahs as $lokasi)
                         <option value="{{ $lokasi->id }}" {{ $lokasi->id == $kspupuks->lokasisawah_id ? 'selected' : '' }}>{{ $lokasi->lokasisawah_keterangan }}</option>
                     @endforeach
@@ -33,13 +34,15 @@
 
             <!-- Kabupaten -->
             <div class="form-group">
-                <label for="lokasisawah_id">Kabupaten</label>
+                <label for="lokasisawah_id">Kabupaten *</label>
+
                 <select class="form-control form-control-lg @error('lokasisawah_id') is-invalid @enderror" id="lokasisawah_id" name="kabupaten_nama">
                     <option selected disabled>--- pilih Kabupaten ---</option>
                     @foreach ($lokasisawahs as $lokasi)
                         <option value="{{ $lokasi->id }}" {{ $lokasi->id == $kspupuks->lokasisawah_id ? 'selected' : '' }}>{{ $lokasi->kabupaten_nama }}</option>
                     @endforeach
                 </select>
+
                 @error('lokasisawah_id')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -47,13 +50,15 @@
 
             <!-- Waktu Tanam -->
             <div class="form-group">
-                <label for="kegiatansawah_id">Waktu Tanam</label>
+                <label for="kegiatansawah_id">Waktu Tanam *</label>
+
                 <select class="form-control form-control-lg @error('kegiatansawah_id') is-invalid @enderror" id="kegiatansawah_id" name="kegiatansawah_id">
-                    <option selected disabled>--- pilih waktu tanam ---</option>
+                    <option selected disabled>--- pilih Waktu Tanam ---</option>
                     @foreach ($kegiatansawahs as $kegiatansawah)
                         <option value="{{ $kegiatansawah->id }}" {{ $kegiatansawah->id == $kspupuks->kegiatansawah_id ? 'selected' : '' }}>{{ $kegiatansawah->ks_waktu_tanam }}</option>
                     @endforeach
                 </select>
+
                 @error('kegiatansawah_id')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -75,7 +80,7 @@
                 <label for="jenispupuk_id">Jenis Pupuk</label>
 
                 <select class="form-control form-control-lg  @error('jenispupuk_id') is-invalid @enderror" id="jenispupuk_id" name="jenispupuk_id">
-                    <option selected disabled>--- pilih jenis pupuk yang digunakan ---</option>
+                    <option selected disabled>--- pilih Jenis Pupuk yang digunakan ---</option>
                     @foreach ($jenispupuks as $jenispupuk)
                         <option value="{{ $jenispupuk->id }}">{{ $jenispupuk->jenispupuk_nama }}</option>
                     @endforeach
@@ -91,7 +96,7 @@
                 <label for="merkpupuk_id">Merk Pupuk *</label>
 
                 <select class="form-control form-control-lg  @error('merkpupuk_id') is-invalid @enderror" id="merkpupuk_id" name="merkpupuk_id">
-                    <option selected disabled>--- pilih merk pupuk yang digunakan ---</option>
+                    <option selected disabled>--- pilih Merk Pupuk yang digunakan ---</option>
                 </select>
 
                 @error('merkpupuk_id')
@@ -126,7 +131,7 @@
 
             <!-- Keterangan Kegiatan Pupuk -->
             <div class="form-group">
-                <label for="ks_pupuk_keterangan">Keterangan Kegiatan</label>
+                <label for="ks_pupuk_keterangan">Keterangan Kegiatan Pupuk</label>
                 <textarea class="form-control form-control-lg" name="ks_pupuk_keterangan" id="ks_pupuk_keterangan" rows="3">{{ $kspupuks->ks_pupuk_keterangan }}</textarea>
             </div>
 

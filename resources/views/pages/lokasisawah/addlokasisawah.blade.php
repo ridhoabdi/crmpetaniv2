@@ -3,8 +3,8 @@
 @section('container')
 
 <div class="row justify-content-center">
-    <div class="col-8">
-        <div class="card-header">
+    <div class="col-8" style="background-color: #ffffff;">
+        <div class="card-header mt-3">
             <a href="/viewlokasisawah" class="btn btn-sm btn-outline-secondary mt-1">
                 <i class="menu-icon mdi mdi-arrow-left"></i>
             </a>
@@ -48,7 +48,7 @@
                 @enderror
             </div>
 
-            <!-- Alamat Lokasi Sawah -->
+            <!-- Keterangan Lokasi Sawah -->
             <div class="form-group">
                 <label for="lokasisawah_keterangan">Keterangan Lokasi Sawah</label>
                 <textarea class="form-control form-control-lg" name="lokasisawah_keterangan" id="lokasisawah_keterangan" rows="3"></textarea>

@@ -40,23 +40,23 @@
                     <div class="col-md-8">
                         <table>
                             <tr>
-                                <th style="width: 200px;">ID IoT</th>
+                                <th>ID IoT</th>
                                 <td>{{ $lokasisawah->iot_id ? $lokasisawah->iot_id : '-' }}</td>
                             </tr>
                             <tr>
-                                <th style="width: 200px;">Latitude</th>
+                                <th>Latitude</th>
                                 <td>{{ $lokasisawah->lokasisawah_latitude ? $lokasisawah->lokasisawah_latitude : '-' }}</td>
                             </tr>
                             <tr>
-                                <th style="width: 200px;">Longitude</th>
+                                <th>Longitude</th>
                                 <td>{{ $lokasisawah->lokasisawah_longitude ? $lokasisawah->lokasisawah_longitude : '-' }}</td>
                             </tr>
                             <tr>
-                                <th style="width: 200px;">Kabupaten</th>
+                                <th>Kabupaten</th>
                                 <td>{{ $lokasisawah->kabupaten_nama }}</td>
                             </tr>
                             <tr>
-                                <th style="width: 200px;">Keterangan Lokasi Sawah</th>
+                                <th>Keterangan Lokasi Sawah</th>
                                 <td>{{ $lokasisawah->lokasisawah_keterangan ? $lokasisawah->lokasisawah_keterangan : '-' }}</td>
                             </tr>
                         </table>

@@ -40,33 +40,32 @@
                     <div class="col-md-8">
                         <table>
                             <tr>
-                                <th style="width: 200px;">Waktu Tanam</th>
-                                <td>{{ \Carbon\Carbon::parse($kspestisida->ks_waktu_tanam)->translatedFormat('l, d F Y') }}</td>
+                                <th>Keterangan Lokasi Sawah</th>
+                                <td>{{ $kspestisida->lokasisawah_keterangan}}</td>
                             </tr>
                             <tr>
-                                <th style="width: 200px;">Tanggal Semprot Pestisida</th>
-                                <td>{{ \Carbon\Carbon::parse($kspestisida->ks_pestisida_tgl_semprot)->translatedFormat('l, d F Y') }}</td>
-                            </tr>
-                            <tr>
-                                <th style="width: 200px;">Nama Pestisida</th>
-                                <td>{{ $kspestisida->pestisida_nama}}</td>
-                            </tr>
-                            <tr>
-                                <th style="width: 200px;">Jumlah Takaran Pestisida</th>
-                                <td>{{ number_format($kspestisida->ks_pestisida_jumlah_takaran, 1) }} liter</td>
-                            </tr>
-                            <tr>
-                                <th style="width: 200px;">Keterangan Kegiatan</th>
-                                <td>{{ $kspestisida->ks_pestisida_keterangan ? $kspestisida->ks_pestisida_keterangan : '-' }}</td>
-
-                            </tr>
-                            <tr>
-                                <th style="width: 200px;">Kabupaten</th>
+                                <th>Kabupaten</th>
                                 <td>{{ $kspestisida->kabupaten_nama }}</td>
                             </tr>
                             <tr>
-                                <th style="width: 200px;">Alamat Lokasi Sawah</th>
-                                <td>{{ $kspestisida->lokasisawah_keterangan}}</td>
+                                <th>Waktu Tanam</th>
+                                <td>{{ \Carbon\Carbon::parse($kspestisida->ks_waktu_tanam)->translatedFormat('l, d F Y') }}</td>
+                            </tr>
+                            <tr>
+                                <th>Tanggal Semprot Pestisida</th>
+                                <td>{{ \Carbon\Carbon::parse($kspestisida->ks_pestisida_tgl_semprot)->translatedFormat('l, d F Y') }}</td>
+                            </tr>
+                            <tr>
+                                <th>Nama Pestisida</th>
+                                <td>{{ $kspestisida->pestisida_nama}}</td>
+                            </tr>
+                            <tr>
+                                <th>Jumlah Takaran Pestisida</th>
+                                <td>{{ number_format($kspestisida->ks_pestisida_jumlah_takaran, 1) }} liter</td>
+                            </tr>
+                            <tr>
+                                <th>Keterangan Kegiatan</th>
+                                <td>{{ $kspestisida->ks_pestisida_keterangan ? $kspestisida->ks_pestisida_keterangan : '-' }}</td>
                             </tr>
                         </table>
                     </div>
