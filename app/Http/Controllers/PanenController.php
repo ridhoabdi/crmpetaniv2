@@ -38,7 +38,8 @@ class PanenController extends Controller
             $panens = DB::table('kegiatansawahs')
                 ->join('lokasisawahs', 'kegiatansawahs.lokasisawah_id', '=', 'lokasisawahs.id')
                 ->join('kabupatens', 'lokasisawahs.kabupaten_id', '=', 'kabupatens.id')
-                ->select('kegiatansawahs.*', 'kabupatens.kabupaten_nama', 'lokasisawahs.lokasisawah_keterangan', 'kegiatansawahs.ks_panen')
+                ->join('varietasbawangs', 'kegiatansawahs.varietasbawang_id', '=', 'varietasbawangs.id')
+                ->select('kegiatansawahs.*', 'kabupatens.kabupaten_nama', 'lokasisawahs.lokasisawah_keterangan', 'varietasbawangs.varietasbawang_nama', 'kegiatansawahs.ks_panen')
                 ->where('kegiatansawahs.user_id', $user_id)
                 ->orderBy('ks_waktu_tanam', 'DESC')
                 ->get();

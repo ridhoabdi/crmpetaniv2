@@ -42,23 +42,27 @@
                     <div class="col-md-8">
                         <table>
                             <tr>
-                                <th style="width: 200px;">Waktu Tanam</th>
+                                <th>Waktu Tanam</th>
                                 <td>{{ \Carbon\Carbon::parse($panen->ks_waktu_tanam)->translatedFormat('l, d F Y') }}</td>
                             </tr>
                             <tr>
-                                <th style="width: 180px;">Luas Lahan</th>
+                                <th>Luas Lahan</th>
                                 <td>{{ number_format($panen->ks_luas_lahan, 0, ',', '.') }} m<sup>2</sup></td>
                             </tr>
                             <tr>
-                                <th style="width: 180px;">Jumlah Bibit</th>
+                                <th>Varietas Bawang Merah</th>
+                                <td>{{ $panen->varietasbawang_nama }}</td>
+                            </tr>
+                            <tr>
+                                <th>Jumlah Bibit</th>
                                 <td>{{ number_format($panen->ks_jumlah_bibit, 0, ',', '.') }} kg</td>
                             </tr>
                             <tr>
-                                <th style="width: 200px;">Kabupaten</th>
+                                <th>Kabupaten</th>
                                 <td>{{ $panen->kabupaten_nama }}</td>
                             </tr>
                             <tr>
-                                <th style="width: 200px;">Alamat Lokasi Sawah</th>
+                                <th>Alamat Lokasi Sawah</th>
                                 <td>{{ $panen->lokasisawah_keterangan}}</td>
                             </tr>
                             

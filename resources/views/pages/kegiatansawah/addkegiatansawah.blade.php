@@ -16,7 +16,7 @@
         <form action="/storekegiatansawah" method="POST">
             @csrf
 
-            <!-- Alamat Lokasi Sawah -->
+            <!-- Keterangan Lokasi Sawah -->
             <div class="form-group mt-3">
                 <label for="lokasisawah_id">Keterangan Lokasi Sawah *</label>
                 <select class="form-control form-control-lg  @error('lokasisawah_id') is-invalid @enderror" id="lokasisawah_id" name="lokasisawah_id">
