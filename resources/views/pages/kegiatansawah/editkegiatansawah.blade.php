@@ -19,7 +19,7 @@
 
             <!-- Alamat Lokasi Sawah -->
             <div class="form-group mt-3">
-                <label for="lokasisawah_id" style="font-size: 15px;">Keterangan Lokasi Sawah *</label>
+                <label for="lokasisawah_id">Keterangan Lokasi Sawah *</label>
                 <select class="form-control form-control-lg  @error('lokasisawah_id') is-invalid @enderror" id="lokasisawah_id" name="lokasisawah_id">
                     <option selected disabled>--- pilih Keterangan Lokasi Sawah ---</option>
                     @foreach ($lokasisawahs as $lokasi)
@@ -33,7 +33,7 @@
 
             <!-- Kabupaten -->
             <div class="form-group">
-                <label for="lokasisawah_id" style="font-size: 15px;">Kabupaten *</label>
+                <label for="lokasisawah_id">Kabupaten *</label>
                 <select class="form-control form-control-lg @error('lokasisawah_id') is-invalid @enderror" id="lokasisawah_id" name="kabupaten_nama">
                     <option selected disabled>--- pilih Kabupaten ---</option>
                     @foreach ($lokasisawahs as $lokasi)
@@ -47,7 +47,7 @@
 
             <!-- Waktu Tanam -->
             <div class="form-group mt-3">
-                <label for="ks_waktu_tanam" style="font-size: 15px;">Waktu Tanam *</label>
+                <label for="ks_waktu_tanam">Waktu Tanam *</label>
 
                 <input type="date" name="ks_waktu_tanam" class="form-control form-control-lg @error('ks_waktu_tanam') is-invalid @enderror" id="ks_waktu_tanam" placeholder=" " value="{{ old('ks_waktu_tanam', $kegiatansawahs->ks_waktu_tanam) }}">
 
@@ -58,26 +58,26 @@
 
             <!-- Metode Pengairan -->
             <div class="form-group">
-                <label for="ks_metode_pengairan" style="font-size: 15px;">Metode Pengairan *</label>
+                <label for="ks_metode_pengairan">Metode Pengairan *</label>
 
                 <div class="form-check @error('ks_metode_pengairan') is-invalid @enderror mt-1" value="{{ old('ks_metode_pengairan') }}">
-                    <div class="" style="font-size: 15px;">
+                    <div class="">
                         <!-- <input class="" type="checkbox" name="ks_metode_pengairan[]" value="Sumur"> Sumur<br> -->
                         <input class="" type="checkbox" name="ks_metode_pengairan[]" value="Sumur" {{ (is_array(old('ks_metode_pengairan')) && in_array('Sumur', old('ks_metode_pengairan'))) || in_array('Sumur', explode(',', $kegiatansawahs->ks_metode_pengairan)) ? 'checked' : '' }}> Sumur<br>
                     </div>
-                    <div class="" style="font-size: 15px;">
+                    <div class="">
                         <!-- <input class="" type="checkbox" name="ks_metode_pengairan[]" value="Irigasi"> Irigasi<br> -->
                         <input class="" type="checkbox" name="ks_metode_pengairan[]" value="Irigasi" {{ (is_array(old('ks_metode_pengairan')) && in_array('Irigasi', old('ks_metode_pengairan'))) || in_array('Irigasi', explode(',', $kegiatansawahs->ks_metode_pengairan)) ? 'checked' : '' }}> Irigasi<br>
                     </div>
-                    <div class="" style="font-size: 15px;">
+                    <div class="">
                         <!-- <input class="" type="checkbox" name="ks_metode_pengairan[]" value="Tadah Hujan"> Tadah Hujan<br> -->
                         <input class="" type="checkbox" name="ks_metode_pengairan[]" value="Tadah Hujan" {{ (is_array(old('ks_metode_pengairan')) && in_array('Tadah Hujan', old('ks_metode_pengairan'))) || in_array('Tadah Hujan', explode(',', $kegiatansawahs->ks_metode_pengairan)) ? 'checked' : '' }}> Tadah Hujan<br>
                     </div>
-                    <div class="" style="font-size: 15px;">
+                    <div class="">
                         <!-- <input class="" type="checkbox" name="ks_metode_pengairan[]" value="Mata Air"> Mata Air<br> -->
                         <input class="" type="checkbox" name="ks_metode_pengairan[]" value="Mata Air" {{ (is_array(old('ks_metode_pengairan')) && in_array('Mata Air', old('ks_metode_pengairan'))) || in_array('Mata Air', explode(',', $kegiatansawahs->ks_metode_pengairan)) ? 'checked' : '' }}> Mata Air<br>
                     </div>
-                    <div class="" style="font-size: 15px;">
+                    <div class="">
                         <!-- <input class="" type="checkbox" name="ks_metode_pengairan[]" value="Sungai"> Sungai<br> -->
                         <input class="" type="checkbox" name="ks_metode_pengairan[]" value="Sungai" {{ (is_array(old('ks_metode_pengairan')) && in_array('Sungai', old('ks_metode_pengairan'))) || in_array('Sungai', explode(',', $kegiatansawahs->ks_metode_pengairan)) ? 'checked' : '' }}> Sungai<br>
                     </div>
@@ -90,7 +90,7 @@
 
             <!-- Varietas Bawang Merah -->
             <div class="form-group">
-                <label for="varietasbawang_id" style="font-size: 15px;">Varietas Bawang Merah *</label>
+                <label for="varietasbawang_id">Varietas Bawang Merah *</label>
                 <select class="form-control form-control-lg @error('varietasbawang_id') is-invalid @enderror" id="varietasbawang_id" name="varietasbawang_id">
                     <option selected disabled>--- pilih Varietas Bawang Merah yang digunakan ---</option>
                     @foreach ($varietasbawangs as $varietasbawang)
@@ -104,7 +104,7 @@
 
             <!-- Jumlah Bibit -->
             <div class="form-group">
-                <label for="ks_jumlah_bibit" style="font-size: 15px;">Jumlah Bibit *</label>
+                <label for="ks_jumlah_bibit">Jumlah Bibit *</label>
 
                 <input type="number" step="0.01" name="ks_jumlah_bibit" class="form-control form-control-lg @error('ks_jumlah_bibit') is-invalid @enderror" value="{{ $kegiatansawahs->ks_jumlah_bibit }}">
                 <div class="form-check">
@@ -122,15 +122,15 @@
                     </div> -->
                     <div class="">
                         <input class="inputan" type="radio" id="kilogram" name="stnBibit" value="Kilogram" {{ $kegiatansawahs->stnBibit == "Kilogram" ? "checked" : "" }}>
-                        <label style="font-size: 15px;">Kilogram</label>
+                        <label>Kilogram</label>
                     </div>
                     <div class="">
                         <input class="inputan" type="radio" id="kuintal" name="stnBibit" value="Kuintal" {{ $kegiatansawahs->stnBibit == "Kuintal" ? "checked" : "" }}>
-                        <label style="font-size: 15px;">Kuintal</label>
+                        <label>Kuintal</label>
                     </div>
                     <div class="">
                         <input class="inputan" type="radio" id="ton" name="stnBibit" value="Ton" {{ $kegiatansawahs->stnBibit == "Ton" ? "checked" : "" }}>
-                        <label style="font-size: 15px;">Ton</label>
+                        <label>Ton</label>
                     </div>
                 </div>
 
@@ -142,7 +142,7 @@
 
             <!-- Luas Lahan -->
             <div class="form-group">
-                <label for="ks_luas_lahan" style="font-size: 15px;">Luas Lahan *</label>
+                <label for="ks_luas_lahan">Luas Lahan *</label>
 
                 <input type="number" step="0.01" name="ks_luas_lahan" class="form-control form-control-lg @error('ks_luas_lahan') is-invalid @enderror" value="{{ $kegiatansawahs->ks_luas_lahan }}">
                 <div class="form-check">
@@ -156,11 +156,11 @@
                     </div> -->
                     <div class="">
                         <input class="inputan" type="radio" id="meter" name="stnLuasLahan" value="Meter" {{ $kegiatansawahs->stnLuasLahan == "Meter" ? "checked" : "" }}>
-                        <label style="font-size: 15px;">Meter</label>
+                        <label>Meter</label>
                     </div>
                     <div class="">
                         <input class="inputan" type="radio" id="hektar" name="stnLuasLahan" value="Hektar" {{ $kegiatansawahs->stnLuasLahan == "Hektar" ? "checked" : "" }}>
-                        <label style="font-size: 15px;">Hektar</label>
+                        <label>Hektar</label>
                     </div>
                 </div>
 
@@ -171,18 +171,18 @@
 
             <!-- Status Lahan -->
             <div class="form-group">
-                <label for="ks_status_lahan" style="font-size: 15px;">Status Lahan *</label>
+                <label for="ks_status_lahan">Status Lahan *</label>
 
                 <div class="form-check @error('ks_status_lahan') is-invalid @enderror mt-1" value="{{ old('ks_status_lahan') }}">
-                    <div class="" style="font-size: 15px;">
+                    <div class="">
                         <!-- <input class="" type="checkbox" name="ks_status_lahan[]" value="Sewa"> Sewa<br> -->
                         <input class="" type="checkbox" name="ks_status_lahan[]" value="Sewa" {{ (is_array(old('ks_status_lahan')) && in_array('Sewa', old('ks_status_lahan'))) || in_array('Sewa', explode(',', $kegiatansawahs->ks_status_lahan)) ? 'checked' : '' }}> Sewa<br>
                     </div>
-                    <div class="" style="font-size: 15px;">
+                    <div class="">
                         <!-- <input class="" type="checkbox" name="ks_status_lahan[]" value="Milik Sendiri"> Milik Sendiri<br> -->
                         <input class="" type="checkbox" name="ks_status_lahan[]" value="Milik Sendiri" {{ (is_array(old('ks_status_lahan')) && in_array('Milik Sendiri', old('ks_status_lahan'))) || in_array('Milik Sendiri', explode(',', $kegiatansawahs->ks_status_lahan)) ? 'checked' : '' }}> Milik Sendiri<br>
                     </div>
-                    <div class="" style="font-size: 15px;">
+                    <div class="">
                         <!-- <input class="" type="checkbox" name="ks_status_lahan[]" value="Bagi Hasil"> Bagi Hasil<br> -->
                         <input class="" type="checkbox" name="ks_status_lahan[]" value="Bagi Hasil" {{ (is_array(old('ks_status_lahan')) && in_array('Bagi Hasil', old('ks_status_lahan'))) || in_array('Bagi Hasil', explode(',', $kegiatansawahs->ks_status_lahan)) ? 'checked' : '' }}> Bagi Hasil<br>
                     </div>
@@ -195,14 +195,14 @@
 
             <!-- Sumber Modal -->
             <div class="form-group">
-                <label for="ks_sumber_modal" style="font-size: 15px;">Sumber Modal *</label>
+                <label for="ks_sumber_modal">Sumber Modal *</label>
 
                 <div class="form-check @error('ks_sumber_modal') is-invalid @enderror mt-1" value="{{ old('ks_sumber_modal') }}">
-                    <div class="" style="font-size: 15px;">
+                    <div class="">
                         <!-- <input class="" type="checkbox" name="ks_sumber_modal[]" value="Sendiri"> Sendiri<br> -->
                         <input class="" type="checkbox" name="ks_sumber_modal[]" value="Sendiri" {{ (is_array(old('ks_sumber_modal')) && in_array('Sendiri', old('ks_sumber_modal'))) || in_array('Sendiri', explode(',', $kegiatansawahs->ks_sumber_modal)) ? 'checked' : '' }}> Sendiri<br>
                     </div>
-                    <div class="" style="font-size: 15px;">
+                    <div class="">
                         <!-- <input class="" type="checkbox" name="ks_sumber_modal[]" value="Pinjam"> Pinjam<br> -->
                         <input class="" type="checkbox" name="ks_sumber_modal[]" value="Pinjam" {{ (is_array(old('ks_sumber_modal')) && in_array('Pinjam', old('ks_sumber_modal'))) || in_array('Pinjam', explode(',', $kegiatansawahs->ks_sumber_modal)) ? 'checked' : '' }}> Pinjam<br>
                     </div>
@@ -215,7 +215,7 @@
 
             <!-- Jumlah Modal -->
             <div class="form-group">
-                <label for="ks_jumlah_modal" style="font-size: 15px;">Jumlah Modal *</label>
+                <label for="ks_jumlah_modal">Jumlah Modal *</label>
 
                 <input type="text" name="ks_jumlah_modal" id="rupiah" class="form-control form-control-lg @error('ks_jumlah_modal') is-invalid @enderror" value="{{ old('ks_jumlah_modal', $kegiatansawahs->ks_jumlah_modal) }}">
 
