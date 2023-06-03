@@ -154,14 +154,13 @@ class DatamasterpetaniController extends Controller
             // where
             ->where('datamasterpetanis.user_id', $user_id)
             ->where('kegiatansawahs.ks_panen', 1)
-            // ->where('datamasterpetanis.id', $id)
             ->where('lokasisawahs.lokasisawah_status', 1)
             // get
             ->get();
 
         foreach ($datamasterpetanis as $item) {
             $client = new Client();
-            $api_url = "http://54.169.149.42:3000/API/postPetani";
+            $api_url = "http://54.169.39.32:3000/API/postPetani";
             // return dd($item->user_id);
             $res = $client->post($api_url, [
                 'json' => [

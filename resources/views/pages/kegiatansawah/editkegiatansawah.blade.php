@@ -200,11 +200,11 @@
                 <div class="form-check @error('ks_sumber_modal') is-invalid @enderror mt-1" value="{{ old('ks_sumber_modal') }}">
                     <div class="">
                         <!-- <input class="" type="checkbox" name="ks_sumber_modal[]" value="Sendiri"> Sendiri<br> -->
-                        <input class="" type="checkbox" name="ks_sumber_modal[]" value="Sendiri" {{ (is_array(old('ks_sumber_modal')) && in_array('Sendiri', old('ks_sumber_modal'))) || in_array('Sendiri', explode(',', $kegiatansawahs->ks_sumber_modal)) ? 'checked' : '' }}> Sendiri<br>
+                        <input class="" type="checkbox" name="ks_sumber_modal[]" value="Modal Sendiri" {{ (is_array(old('ks_sumber_modal')) && in_array('Sendiri', old('ks_sumber_modal'))) || in_array('Sendiri', explode(',', $kegiatansawahs->ks_sumber_modal)) ? 'checked' : '' }}> Modal Sendiri<br>
                     </div>
                     <div class="">
                         <!-- <input class="" type="checkbox" name="ks_sumber_modal[]" value="Pinjam"> Pinjam<br> -->
-                        <input class="" type="checkbox" name="ks_sumber_modal[]" value="Pinjam" {{ (is_array(old('ks_sumber_modal')) && in_array('Pinjam', old('ks_sumber_modal'))) || in_array('Pinjam', explode(',', $kegiatansawahs->ks_sumber_modal)) ? 'checked' : '' }}> Pinjam<br>
+                        <input class="" type="checkbox" name="ks_sumber_modal[]" value="Pinjaman" {{ (is_array(old('ks_sumber_modal')) && in_array('Pinjam', old('ks_sumber_modal'))) || in_array('Pinjam', explode(',', $kegiatansawahs->ks_sumber_modal)) ? 'checked' : '' }}> Pinjaman<br>
                     </div>
                 </div>
 

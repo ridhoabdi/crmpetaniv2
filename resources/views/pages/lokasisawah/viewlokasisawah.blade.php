@@ -69,13 +69,13 @@
 
                             <!-- Sementara fitur delete lokasi dinonaktifkan dulu -->
                             
-                            <!-- <form action="/deletelokasisawah/{{ $lokasisawah->id }}" method="POST" onsubmit="return confirm('Apakah Anda ingin menghapus Lokasi Sawah ini?')">
+                            <form action="/deletelokasisawah/{{ $lokasisawah->id }}" method="POST" onsubmit="return confirm('Apakah Anda ingin menghapus Lokasi Sawah ini?')">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-outline-danger mx-1">
                                     <i class="menu-icon mdi mdi-delete"></i> Hapus
                                 </button>
-                            </form> -->
+                            </form>
                         </div>
                     </div>
                 </div>

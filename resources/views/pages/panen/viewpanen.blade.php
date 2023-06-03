@@ -42,6 +42,14 @@
                     <div class="col-md-8">
                         <table>
                             <tr>
+                                <th>Keterangan Lokasi Sawah</th>
+                                <td>{{ $panen->lokasisawah_keterangan}}</td>
+                            </tr>
+                            <tr>
+                                <th>Kabupaten</th>
+                                <td>{{ $panen->kabupaten_nama }}</td>
+                            </tr>
+                            <tr>
                                 <th>Waktu Tanam</th>
                                 <td>{{ \Carbon\Carbon::parse($panen->ks_waktu_tanam)->translatedFormat('l, d F Y') }}</td>
                             </tr>
@@ -57,15 +65,6 @@
                                 <th>Jumlah Bibit</th>
                                 <td>{{ number_format($panen->ks_jumlah_bibit, 0, ',', '.') }} kg</td>
                             </tr>
-                            <tr>
-                                <th>Kabupaten</th>
-                                <td>{{ $panen->kabupaten_nama }}</td>
-                            </tr>
-                            <tr>
-                                <th>Alamat Lokasi Sawah</th>
-                                <td>{{ $panen->lokasisawah_keterangan}}</td>
-                            </tr>
-                            
                         </table>
                     </div>
                     <div class="col-md-4">

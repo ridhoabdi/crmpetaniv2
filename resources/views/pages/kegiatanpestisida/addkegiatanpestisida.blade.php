@@ -71,7 +71,7 @@
 
             <!-- Pestisida -->
             <div class="form-group">
-                <label for="pestisida_id">Nama Pestisida</label>
+                <label for="pestisida_id">Nama Pestisida *</label>
                 <select name="pestisida_id" id="pestisida_id" class="form-control form-control-lg @error('pestisida_id') is-invalid @enderror">
                     <option selected disabled>--- pilih Pestisida ---</option>
                     @foreach ($pestisidas as $pestisida)

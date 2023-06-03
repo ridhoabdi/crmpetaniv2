@@ -41,7 +41,8 @@ class RiwayatpanenController extends Controller
                 ->join('lokasisawahs', 'panens.lokasisawah_id', '=', 'lokasisawahs.id')
                 ->join('kabupatens', 'lokasisawahs.kabupaten_id', '=', 'kabupatens.id')
                 ->join('kegiatansawahs', 'panens.kegiatansawah_id', '=', 'kegiatansawahs.id')
-                ->select('panens.*', 'kabupatens.kabupaten_nama', 'lokasisawahs.lokasisawah_keterangan', 'kegiatansawahs.ks_waktu_tanam', 'kegiatansawahs.ks_jumlah_bibit', 'kegiatansawahs.ks_jumlah_modal')
+                ->join('varietasbawangs', 'kegiatansawahs.varietasbawang_id', '=', 'varietasbawangs.id')
+                ->select('panens.*', 'kabupatens.kabupaten_nama', 'lokasisawahs.lokasisawah_keterangan', 'kegiatansawahs.ks_waktu_tanam', 'varietasbawangs.varietasbawang_nama', 'kegiatansawahs.ks_jumlah_bibit', 'kegiatansawahs.ks_jumlah_modal')
                 ->where('panens.user_id', $user_id)
                 ->where('lokasisawahs.lokasisawah_status', 1)
                 ->where('kegiatansawahs.ks_panen', 1)
@@ -53,6 +54,114 @@ class RiwayatpanenController extends Controller
             
         }
 
+    }
+
+    public function detailriwayatpanen($id) {
+        $user_id = auth()->user()->id;
+
+        // $panens = DB::table('panens')
+        //     ->join('users', 'panens.user_id', '=', 'users.id')
+        //     ->join('pengepuls', 'panens.user_id', '=', 'pengepuls.id')
+        //     ->join('lokasisawahs', 'panens.lokasisawah_id', '=', 'lokasisawahs.id')
+        //     ->join('kabupatens', 'lokasisawahs.kabupaten_id', '=', 'kabupatens.id')
+        //     ->join('kegiatansawahs', 'panens.kegiatansawah_id', '=', 'kegiatansawahs.id')
+        //     ->select('panens.*', 
+        //         'users.pemilik_nama', 
+        //         'pengepuls.pengepul_nama',
+        //         'pengepuls.pengepul_kontak',
+        //         'pengepuls.pengepul_kabupaten',
+        //         'pengepuls.pengepul_alamat',
+        //         'pemilik_tanggal_lahir', 
+        //         'pemilik_kontak', 
+        //         'pemilik_pendidikan', 
+        //         'kabupatens.kabupaten_nama', 
+        //         'lokasisawahs.iot_id', 
+        //         'lokasisawahs.lokasisawah_keterangan', 
+        //         'kegiatansawahs.ks_metode_pengairan', 
+        //         'kegiatansawahs.ks_sumber_modal',
+        //         'kegiatansawahs.ks_luas_lahan', 
+        //         'kegiatansawahs.ks_jumlah_bibit', 
+        //         'kegiatansawahs.ks_waktu_tanam', 
+        //         'kegiatansawahs.ks_status_lahan', 
+        //         'kegiatansawahs.ks_jumlah_modal')
+        //     ->where('panens.user_id', $user_id)
+        //     ->where('lokasisawahs.lokasisawah_status', 1)
+        //     ->where('kegiatansawahs.ks_panen', 1)
+        //     ->orderBy('panen_tanggal', 'DESC')
+        //     ->get();
+        $panens = DB::table('panens')
+            // join
+            ->join('users', 'panens.user_id', '=', 'users.id')
+            ->join('lokasisawahs', 'panens.lokasisawah_id', '=', 'lokasisawahs.id')
+            ->join('kegiatansawahs', 'panens.kegiatansawah_id', '=', 'kegiatansawahs.id')
+            ->join('kabupatens', 'lokasisawahs.kabupaten_id', '=', 'kabupatens.id')
+            ->join('varietasbawangs', 'kegiatansawahs.varietasbawang_id', '=', 'varietasbawangs.id')
+            ->join('pengepuls', 'panens.pengepul_id', '=', 'pengepuls.id')
+            // select
+            ->select('panens.*',
+                'users.pemilik_nama',
+                'users.pemilik_jeniskelamin',
+                'users.pemilik_tanggal_lahir',
+                'users.pemilik_kontak',
+                'users.pemilik_pendidikan',
+                'pengepuls.pengepul_nama',
+                'pengepuls.pengepul_kontak',
+                'pengepuls.pengepul_kabupaten',
+                'pengepuls.pengepul_alamat',
+                'kabupatens.kabupaten_nama',
+                'lokasisawahs.iot_id',
+                'lokasisawahs.lokasisawah_keterangan',
+                'kegiatansawahs.ks_metode_pengairan',
+                'kegiatansawahs.ks_sumber_modal',
+                'kegiatansawahs.ks_luas_lahan',
+                'varietasbawangs.varietasbawang_nama',
+                'kegiatansawahs.ks_jumlah_bibit',
+                'kegiatansawahs.ks_waktu_tanam',
+                'kegiatansawahs.ks_status_lahan',
+                'kegiatansawahs.ks_jumlah_modal',
+                'panens.panen_tanggal',
+                'panens.panen_jumlah',
+                'panens.panen_kualitas_a',
+                'panens.panen_kualitas_b',
+                'panens.panen_kualitas_c',
+                'panens.panen_harga')
+            // where
+            ->where('panens.user_id', $user_id)
+            ->where('kegiatansawahs.ks_panen', 1)
+            // ->where('panens.id', $id)
+            ->where('lokasisawahs.lokasisawah_status', 1)
+            // get
+            ->get();
+        
+        $kspupuks = DB::table('kspupuks')
+            ->join('lokasisawahs', 'kspupuks.lokasisawah_id', '=', 'lokasisawahs.id')
+            ->join('kegiatansawahs', 'kspupuks.kegiatansawah_id', '=', 'kegiatansawahs.id')
+            ->join('jenispupuks', 'kspupuks.jenispupuk_id', '=', 'jenispupuks.id')
+            ->join('merkpupuks', 'kspupuks.merkpupuk_id', '=', 'merkpupuks.id')
+            ->join('kabupatens', 'lokasisawahs.kabupaten_id', '=', 'kabupatens.id')
+            ->select('kspupuks.*', 'kabupatens.kabupaten_nama', 'lokasisawahs.lokasisawah_keterangan', 'jenispupuks.jenispupuk_nama', 'merkpupuks.merkpupuk_nama', 'kegiatansawahs.ks_waktu_tanam')
+            ->where('kspupuks.user_id', $user_id)
+            ->where('kegiatansawahs.ks_panen', 1)
+            ->where('lokasisawahs.lokasisawah_status', 1)
+            ->where('kspupuks.id', $id)
+            ->orderBy('ks_pupuk_tgl_rabuk', 'DESC')
+            ->get();
+
+        $kspestisidas = DB::table('kspestisidas')
+            ->join('lokasisawahs', 'kspestisidas.lokasisawah_id', '=', 'lokasisawahs.id')
+            ->join('kegiatansawahs', 'kspestisidas.kegiatansawah_id', '=', 'kegiatansawahs.id')
+            ->join('pestisidas', 'kspestisidas.pestisida_id', '=', 'pestisidas.id')
+            ->join('kabupatens', 'lokasisawahs.kabupaten_id', '=', 'kabupatens.id')
+            ->select('kspestisidas.*', 'kabupatens.kabupaten_nama', 'lokasisawahs.lokasisawah_keterangan', 'pestisidas.pestisida_nama', 'kegiatansawahs.ks_waktu_tanam')
+            ->where('kspestisidas.user_id', $user_id)
+            ->where('kegiatansawahs.ks_panen', 1)
+            ->where('lokasisawahs.lokasisawah_status', 1)
+            ->where('kspestisidas.id', $id)
+            ->orderBy('ks_pestisida_tgl_semprot', 'DESC')
+            ->get();
+
+        return view('/pages/riwayatpanen/detailriwayatpanen', compact('panens', 'kspupuks', 'kspestisidas'));
+        
     }
 
     public function pdfriwayatpanen($id){

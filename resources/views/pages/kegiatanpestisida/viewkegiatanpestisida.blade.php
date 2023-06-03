@@ -64,7 +64,7 @@
                                 <td>{{ number_format($kspestisida->ks_pestisida_jumlah_takaran, 1) }} liter</td>
                             </tr>
                             <tr>
-                                <th>Keterangan Kegiatan</th>
+                                <th>Keterangan Kegiatan Pestisida</th>
                                 <td>{{ $kspestisida->ks_pestisida_keterangan ? $kspestisida->ks_pestisida_keterangan : '-' }}</td>
                             </tr>
                         </table>

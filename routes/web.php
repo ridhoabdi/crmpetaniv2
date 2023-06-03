@@ -86,6 +86,7 @@ Route::middleware('auth')->group(function () {
 
     // Riwayat Panen
     Route::get('/viewriwayatpanen', [RiwayatpanenController::class, 'index'])->name('viewriwayatpanen');
+    Route::get('/detailriwayatpanen/{id}', [RiwayatpanenController::class, 'detailriwayatpanen'])->name('detailriwayatpanen');
     Route::get('/pdfriwayatpanen/{id}', [RiwayatpanenController::class, 'pdfriwayatpanen'])->name('pdfriwayatpanen');
 
     // Data Master petani

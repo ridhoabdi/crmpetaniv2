@@ -174,7 +174,7 @@
                         <input class="" type="checkbox" name="ks_sumber_modal[]" value="Modal Sendiri"> Modal Sendiri<br>
                     </div>
                     <div class="">
-                        <input class="" type="checkbox" name="ks_sumber_modal[]" value="Pinjam"> Pinjam<br>
+                        <input class="" type="checkbox" name="ks_sumber_modal[]" value="Pinjaman"> Pinjaman<br>
                     </div>
                 </div>
 
