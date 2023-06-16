@@ -160,7 +160,7 @@ class DatamasterpetaniController extends Controller
 
         foreach ($datamasterpetanis as $item) {
             $client = new Client();
-            $api_url = "http://54.169.39.32:3000/API/postPetani";
+            $api_url = "http://34.101.57.174:3000/API/postPetani";
             // return dd($item->user_id);
             $res = $client->post($api_url, [
                 'json' => [

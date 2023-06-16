@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kegiatansawah;
+use App\Models\Kspestisida;
+use App\Models\Kspupuk;
 use App\Models\Lokasisawah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
+use function Ramsey\Uuid\v1;
 
 class LokasisawahController extends Controller
 {
@@ -151,12 +156,48 @@ class LokasisawahController extends Controller
     public function destroy($id)
     {
         $lokasisawahs = Lokasisawah::find($id);
-
         if (!$lokasisawahs) {
             return redirect('/viewlokasisawah')->with('error', 'Data tidak ditemukan');
         }
-
         $lokasisawahs->delete();
         return redirect('/viewlokasisawah')->with('success', 'Data berhasil dihapus');
+        
+        // jika menghapus data lokasi sawah, maka data kegiatan penanaman bawang, kegiatan pestisida, kegiatan pupuk juga akan ikut terhapus
+        // $user_id = auth()->user()->id;
+
+        // $lokasisawahs = Lokasisawah::find($id);
+        // $kegiatansawahs = Kegiatansawah::where('id', $id)->where('user_id', auth()->user()->id)->first();
+        // $kspupuks = Kspupuk::where('id', $id)->where('user_id', auth()->user()->id)->first();
+        // $kspestisidas = Kspestisida::where('id', $id)->where('user_id', auth()->user()->id)->first();
+        
+        // // lokasi sawah
+        // if (!$lokasisawahs) {
+        //     return redirect('/viewlokasisawah')->with('error', 'Data tidak ditemukan');
+        // }
+
+        // $lokasisawahs->delete();
+
+        // // kegiatan penanaman bawang
+        // if (!$kegiatansawahs) {
+        //     return redirect('/viewlokasisawah')->with('success', 'Data berhasil dihapus');
+        // }
+
+        // $kegiatansawahs->delete();
+
+        // // kegiatan pupuk
+        // if (!$kspupuks) {
+        //     return redirect('/viewlokasisawah')->with('success', 'Data berhasil dihapus');
+        // }
+
+        // $kspupuks->delete();
+
+        // // kegiatan pestisida
+        // if (!$kspestisidas) {
+        //     return redirect('/viewlokasisawah')->with('success', 'Data berhasil dihapus');
+        // }
+
+        // $kspestisidas->delete();
+
+        // return redirect('/viewlokasisawah')->with('success', 'Data berhasil dihapus');
     }
 }
