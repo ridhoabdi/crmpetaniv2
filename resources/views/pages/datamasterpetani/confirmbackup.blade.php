@@ -17,12 +17,12 @@
 
             <!-- [Hidden : lokasisawah_id ] -->
             <div class="form-group mt-3">
-                <input type="hidden" name="lokasisawah_id" id="lokasisawah_id" value="{{ $data->lokasisawah_id }}">
+                <input type="hidden" name="lokasisawah_id" id="lokasisawah_id" value="{{ $lokasisawahs->first()->id }}">
             </div>
 
             <!-- [Hidden : kegiatansawah_id ] -->
             <div class="form-group mt-3">
-                <input type="hidden" name="kegiatansawah_id" id="kegiatansawah_id" value="{{ $data->kegiatansawah_id }}">
+                <input type="hidden" name="kegiatansawah_id" id="kegiatansawah_id" value="{{ $kegiatansawahs->first()->id }}">
             </div>
 
             <!-- [Hidden : kspupuk_id ] -->
@@ -37,7 +37,7 @@
 
             <!-- [Hidden : panen_id ] -->
             <div class="form-group mt-3">
-                <input type="hidden" name="id" id="id" value="{{ $data->id }}">
+                <input type="hidden" name="id" id="id" value="{{ $panens->first()->id }}">
             </div>
 
             <!-- Buttom Submit dan Cancel -->

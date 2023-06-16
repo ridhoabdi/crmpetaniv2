@@ -33,7 +33,24 @@ class DatamasterpetaniController extends Controller
     {
         $user_id = auth()->user()->id;
 
-        $data = Panen::find($id);
+        // $data = Panen::find($id);
+
+        $lokasisawahs = DB::table('lokasisawahs')
+            ->join('kabupatens', 'kabupatens.id', '=', 'lokasisawahs.kabupaten_id')
+            ->select('lokasisawahs.*', 'kabupatens.kabupaten_nama')
+            ->where('lokasisawahs.lokasisawah_status', 1)
+            ->where('lokasisawahs.user_id', $user_id)
+            ->get();
+
+        $kegiatansawahs = DB::table('kegiatansawahs')
+            ->join('lokasisawahs', 'kegiatansawahs.lokasisawah_id', '=', 'lokasisawahs.id')
+            ->join('kabupatens', 'lokasisawahs.kabupaten_id', '=', 'kabupatens.id')
+            ->join('varietasbawangs', 'kegiatansawahs.varietasbawang_id', '=', 'varietasbawangs.id')
+            ->select('kegiatansawahs.*', 'kabupatens.kabupaten_nama', 'lokasisawahs.lokasisawah_keterangan', 'varietasbawangs.varietasbawang_nama')
+            ->where('kegiatansawahs.user_id', $user_id)
+            ->where('lokasisawahs.lokasisawah_status', 1)
+            ->where('kegiatansawahs.ks_panen', 1)
+            ->get();
 
         $kspupuks = DB::table('kspupuks')
             ->join('lokasisawahs', 'kspupuks.lokasisawah_id', '=', 'lokasisawahs.id')
@@ -45,7 +62,7 @@ class DatamasterpetaniController extends Controller
             ->where('kspupuks.user_id', $user_id)
             ->where('kegiatansawahs.ks_panen', 1)
             ->where('lokasisawahs.lokasisawah_status', 1)
-            ->where('kspupuks.id', $id)
+            // ->where('kspupuks.id', $id)
             ->orderBy('ks_pupuk_tgl_rabuk', 'DESC')
             ->get();
 
@@ -58,11 +75,24 @@ class DatamasterpetaniController extends Controller
             ->where('kspestisidas.user_id', $user_id)
             ->where('kegiatansawahs.ks_panen', 1)
             ->where('lokasisawahs.lokasisawah_status', 1)
-            ->where('kspestisidas.id', $id)
+            // ->where('kspestisidas.id', $id)
             ->orderBy('ks_pestisida_tgl_semprot', 'DESC')
             ->get();
 
-        return view('/pages/datamasterpetani/confirmbackup', compact('data', 'kspupuks', 'kspestisidas', 'id'));
+        $panens = DB::table('panens')
+            ->join('lokasisawahs', 'panens.lokasisawah_id', '=', 'lokasisawahs.id')
+            ->join('kegiatansawahs', 'panens.kegiatansawah_id', '=', 'kegiatansawahs.id')
+            ->join('pengepuls', 'panens.pengepul_id', '=', 'pengepuls.id')
+            ->select('panens.*', 'lokasisawahs.lokasisawah_keterangan', 'kegiatansawahs.ks_waktu_tanam', 'pengepuls.pengepul_nama')
+            ->where('panens.user_id', $user_id)
+            ->where('kegiatansawahs.ks_panen', 1)
+            ->where('lokasisawahs.lokasisawah_status', 1)
+            ->get();
+
+        // return dd($panens);
+        // return view('/pages/datamasterpetani/confirmbackup', compact('data', 'kspupuks', 'kspestisidas', 'id'));
+
+        return view('/pages/datamasterpetani/confirmbackup', compact('lokasisawahs', 'kegiatansawahs', 'kspupuks', 'kspestisidas', 'panens', 'id'));
     }
 
     /**
