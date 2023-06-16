@@ -71,7 +71,9 @@
     </div>
     <ul class="list-group mt-3">
         <div class="card-header">
-            <p class="" style="font-size: larger;">Berikut adalah riwayat panen dari kegiatan penanaman bawang merah yang telah Bapak/Ibu lakukan. <br> Silakan klik ikon <i class="menu-icon mdi mdi-eye-outline"></i> untuk melihat detail riwayat panen. </p>
+            <p class="" style="font-size: larger;">Berikut adalah riwayat panen dari aktivitas pertanian bawang merah yang sudah Bapak/Ibu lakukan</p>
+            <p>1. Pilih <i class="menu-icon mdi mdi-download btn-outline-success mx-1"></i> untuk mengunduh detail riwayat panen<br> 2. Pilih <i class="menu-icon mdi mdi-eye btn-outline-warning mx-1"></i> untuk melihat detail riwayat panen
+            </p>
         </div>
         <li class="list-group-item mt-3">
             <div class="row table-responsive">
@@ -82,12 +84,12 @@
                             <th>Waktu Tanam</th>
                             <th>Varietas Bawang</th>
                             <th>Jumlah Bibit</th>
-                            <th>Jumlah Modal</th>
+                            <!-- <th>Jumlah Modal</th> -->
                             <th>Jumlah Panen</th>
                             <th>Harga Panen</th>
                             <th>Kabupaten</th>
                             <!-- <th>Keterangan Lokasi Sawah</th> -->
-                            <!-- <th>Unduh</th> -->
+                            <th>Unduh</th>
                             <th>Detail</th>
                         </tr>
                     </thead>
@@ -98,16 +100,16 @@
                                 <td>{{ \Carbon\Carbon::parse($riwayatpanen->ks_waktu_tanam)->translatedFormat('l, d F Y') }}</td>
                                 <td>{{ $riwayatpanen->varietasbawang_nama }}</td>
                                 <td>{{ number_format($riwayatpanen->ks_jumlah_bibit, 0, ',', '.') }} kg</td>
-                                <td>{{ 'Rp. ' . number_format($riwayatpanen->ks_jumlah_modal, 0, ',', '.') }}</td>
+                                <!-- <td>{{ 'Rp. ' . number_format($riwayatpanen->ks_jumlah_modal, 0, ',', '.') }}</td> -->
                                 <td>{{ number_format($riwayatpanen->panen_jumlah, 0, ',', '.') }} kg</td>
                                 <td>{{ 'Rp ' . number_format($riwayatpanen->panen_harga, 0, ',', '.') }}</td>
                                 <td>{{ $riwayatpanen->kabupaten_nama }}</td>
                                 <!-- <td>{{ $riwayatpanen->lokasisawah_keterangan }}</td> -->
-                                <!-- <td>
+                                <td>
                                     <a href="/pdfriwayatpanen/{{$riwayatpanen->id}}" class="btn btn-sm btn-outline-success mt-1">
                                         <i class="menu-icon mdi mdi-download"></i> Unduh
                                     </a>
-                                </td> -->
+                                </td>
                                 <td>
                                     <a href="/detailriwayatpanen/{{$riwayatpanen->id}}" class="btn btn-sm btn-outline-warning mt-1">
                                         <i class="menu-icon mdi mdi-eye-outline"></i> Lihat Detail

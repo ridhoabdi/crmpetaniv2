@@ -296,7 +296,7 @@ class KegiatansawahController extends Controller
             'ks_panen' => $request->ks_panen
         ]);
 
-        return redirect('/viewkegiatansawah')->with('success', 'Data berhasil diedit');
+        return redirect('/viewkegiatansawah')->with('success', 'Data berhasil diupdate');
     }
 
     /**

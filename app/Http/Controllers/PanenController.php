@@ -179,7 +179,18 @@ class PanenController extends Controller
      */
     public function edit($id)
     {
-        //
+        // $data = Panen::find($id);
+        // return dd($data);
+        // return view('/pages/panen/editpanen', compact('data'));
+
+        // $user_id = auth()->user()->id;
+        // $panens = Panen::where('user_id', $user_id)
+        //     ->find($id);
+        // if (!$panens) {
+        //     return redirect('/viewpanen')->with('error', 'Data tidak ditemukan');
+        // }
+        // $data['panens'] = $panens;
+        // return dd($data);
     }
 
     /**
@@ -191,7 +202,41 @@ class PanenController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // // konversi data panen ke kg
+        // $panenJumlah = $request->input('panen_jumlah');
+        // $stnPanen = $request->input('stnPanen');
+        // $hasilSatuanJumlah = $stnPanen;
+        // if ($stnPanen == "Kilogram") {
+        //     $hasilSatuanJumlah = $panenJumlah;
+        // } elseif ($stnPanen == "Kuintal") {
+        //     $hasilSatuanJumlah = $panenJumlah * 100;
+        // } elseif ($stnPanen == "Ton") {
+        //     $hasilSatuanJumlah = $panenJumlah * 1000;
+        // }
+
+        // // harga panen
+        // $panen_harga = $request->input('panen_harga');
+        // $panen_harga = preg_replace("/[^0-9]/", "", $panen_harga); // menghapus karakter selain angka
+        // $panen_harga = intval($panen_harga); // mengonversi nilai menjadi integer
+
+        // $request->validate([
+        //     'panen_tanggal' => 'required',
+        //     'panen_jumlah' => 'required',
+        //     'panen_harga' => 'required'
+        // ], [
+        //     'panen_tanggal' => '*Field ini wajib diisi',
+        //     'panen_jumlah' => '*Field ini wajib diisi',
+        //     'panen_harga' => '*Field ini wajib diisi'
+        // ]);
+
+        // $data = panen::find($id);
+        // $data->update([
+        //     'panen_tanggal' => $request->panen_tanggal,
+        //     'panen_jumlah' => (int)$hasilSatuanJumlah,
+        //     'panen_harga' => $panen_harga
+        // ]);
+
+        // return redirect('/viewpanen')->with('success', 'Data berhasil diupdate');
     }
 
     /**

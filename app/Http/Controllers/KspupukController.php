@@ -269,7 +269,7 @@ class KspupukController extends Controller
             'ks_pupuk_keterangan' => $request->ks_pupuk_keterangan
         ]);
 
-        return redirect('/viewkegiatanpupuk')->with('success', 'Data berhasil diedit');
+        return redirect('/viewkegiatanpupuk')->with('success', 'Data berhasil diupdate');
     }
 
     /**

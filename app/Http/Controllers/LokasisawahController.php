@@ -67,6 +67,10 @@ class LokasisawahController extends Controller
             'lokasisawah_status' => $request->lokasisawah_status
         ]);
 
+        // Code Send API data sensor IoT
+        
+        // End Code Send data sensor IoT
+
         return redirect('/viewlokasisawah')->with('success', 'Data berhasil disimpan');
     }
 
@@ -135,7 +139,7 @@ class LokasisawahController extends Controller
             'lokasisawah_keterangan' => $request->lokasisawah_keterangan,
         ]);
 
-        return redirect('/viewlokasisawah')->with('success', 'Data berhasil diedit');
+        return redirect('/viewlokasisawah')->with('success', 'Data berhasil diupdate');
     }
 
     /**

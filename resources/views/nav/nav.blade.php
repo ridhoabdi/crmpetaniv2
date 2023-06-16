@@ -7,7 +7,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ url('/pages/Profil') }}">
+            <a class="nav-link" href="{{ url('/viewprofilpetani/') }}">
                 <i class="menu-icon mdi mdi-account"></i>
                 <span class="menu-title">Profil</span>
             </a>
@@ -25,20 +25,10 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false"
-                aria-controls="form-elements">
+            <a class="nav-link" href="{{ url('/viewiotdancuaca/') }}">
                 <i class="menu-icon mdi mdi-wifi"></i>
                 <span class="menu-title">IoT</span>
-                <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="form-elements">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/pages/PerkiraanIot') }}">IoT Sensor</a></li>
-                </ul>
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/viewperkiraancuaca/') }}">Perkiraan Cuaca</a></li>
-                </ul>
-            </div>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{ url('/viewkegiatansawah/') }}">

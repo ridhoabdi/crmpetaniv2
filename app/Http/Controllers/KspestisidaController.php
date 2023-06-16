@@ -241,7 +241,7 @@ class KspestisidaController extends Controller
             'ks_pestisida_keterangan' => $request->ks_pestisida_keterangan
         ]);
 
-        return redirect('/viewkegiatanpestisida')->with('success', 'Data berhasil diedit');
+        return redirect('/viewkegiatanpestisida')->with('success', 'Data berhasil diupdate');
     }
 
     /**

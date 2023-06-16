@@ -192,6 +192,131 @@
 </div>
 </div> -->
 </div>
+
+
+<p class="h3 fw-bold mt-5">Data Sensor IoT</p>
+<p class="lead">Silahkan tambahkan lokasi sawah terlebih dahulu jika data sensor IoT belum ada</p>
+<div class="row">
+    <div class="col-xl-3 col-lg-6 mb-4">
+        <div class="bg-white rounded-lg p-5 shadow">
+            <h2 class="h6 font-weight-bold text-center mb-4">ID IoT</h2>
+            <h4 class="text-center">{{ $dataiot[0]['id_iot'] ?? 'Data tidak tersedia' }}</h4>
+        </div>
+    </div>  
+    <div class="col-xl-3 col-lg-6 mb-4">
+        <div class="bg-white rounded-lg p-5 shadow">
+            <h2 class="h6 font-weight-bold text-center mb-4">Data Kecepatan Angin</h2>
+            <h4 class="text-center">{{ isset($dataiot[0]['datakecepatanangin']) ? $dataiot[0]['datakecepatanangin'].' m/s' : 'Data tidak tersedia' }}</h4>
+
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-lg-6 mb-4">
+        <div class="bg-white rounded-lg p-5 shadow">
+            <h2 class="h6 font-weight-bold text-center mb-4">Data Suhu Udara</h2>
+            <h4 class="text-center">{{ isset($dataiot[0]['datasuhuudara']) ? $dataiot[0]['datasuhuudara'].' °C' : 'Data tidak tersedia' }}</h4>
+        </div>
+    </div> 
+    
+    <div class="col-xl-3 col-lg-6 mb-4">
+        <div class="bg-white rounded-lg p-5 shadow">
+            <h2 class="h6 font-weight-bold text-center mb-4">Data Kelembaban Udara</h2>
+            <h4 class="text-center">{{ isset($dataiot[0]['datakelembabanudara']) ? $dataiot[0]['datakelembabanudara'].' %' : 'Data tidak tersedia' }}</h4>
+        </div>
+    </div>  
+
+    <div class="col-xl-3 col-lg-6 mb-4">
+        <div class="bg-white rounded-lg p-5 shadow">
+            <h2 class="h6 font-weight-bold text-center mb-4">Data pH Tanah</h2>
+            <h4 class="text-center">{{ isset($dataiot[0]['dataphtanah']) ? $dataiot[0]['dataphtanah'].' pH' : 'Data tidak tersedia' }}</h4>
+        </div>
+    </div>  
+
+    <div class="col-xl-3 col-lg-6 mb-4">
+        <div class="bg-white rounded-lg p-5 shadow">
+            <h2 class="h6 font-weight-bold text-center mb-4">Data Kelembaban Tanah</h2>
+            <h4 class="text-center">{{ isset($dataiot[0]['datakelembabantanah']) ? $dataiot[0]['datakelembabantanah'].' %' : 'Data tidak tersedia' }}</h4>
+        </div>
+    </div>  
+
+    <div class="col-xl-3 col-lg-6 mb-4">
+        <div class="bg-white rounded-lg p-5 shadow">
+            <h2 class="h6 font-weight-bold text-center mb-4">Data Suhu Tanah</h2>
+            <h4 class="text-center">{{ isset($dataiot[0]['datasuhutanah']) ? $dataiot[0]['datasuhutanah'].' °C' : 'Data tidak tersedia' }}</h4>
+        </div>
+    </div>  
+
+    <div class="col-xl-3 col-lg-6 mb-4">
+        <div class="bg-white rounded-lg p-5 shadow">
+            <h2 class="h6 font-weight-bold text-center mb-4">Status Alat</h2>
+            <h4 class="text-center">
+                @if(isset($dataiot[0]['statusalat']))
+                    @if($dataiot[0]['statusalat'])
+                        Hidup
+                    @else
+                        Mati
+                    @endif
+                @else
+                    Data tidak tersedia
+                @endif
+            </h4>
+        </div>
+    </div>
+</div>
+
+</div>
+<div>
+
+        <!-- <p class="h3 fw-bold">History IoT diladang Anda</p> -->
+        <!-- <p class="lead">Silahkan tambahkan lokasi jika data history iot belum ada</p>
+        <p class="card-title">Table IoT</p>
+
+        <div class="row">
+            <div>
+            </div>
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table id="table" class="display expandable-table" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th scope="col">NO</th>
+                                <th scope="col">Id_iot</th>
+                                <th scope="col">Alamat Daerah</th>
+                                <th scope="col">Data Kecepatan Angin</th>
+                                <th scope="col">Data Suhu Udara</th>
+                                <th scope="col">Data Kelembaban Udara</th>
+                                <th scope="col">Data Ph Tanah</th>
+                                <th scope="col">Data Kelembaban Tanah</th>
+                                <th scope="col">Data Suhu Tanah</th>
+                                <th scope="col">Status Alat</th>
+                                <th scope="col">Waktu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{-- @foreach ($data as $dataiot)
+                                <tr>
+                                    <th scope="row">{{ $dataiot->id }}</th>
+                                    <td>{{ $dataiot->id_iot }}</td>
+                                    <td>{{ $dataiot->alamat }}</td>
+                                    <td>{{ $dataiot->datakecepatanangin }}</td>
+                                    <td>{{ $dataiot->datasuhuudara }}</td>
+                                    <td>{{ $dataiot->datakelembabanudara }}</td>
+                                    <td>{{ $dataiot->dataphtanah }}</td>
+                                    <td>{{ $dataiot->datakelembabantanah }}</td>
+                                    <td>{{ $dataiot->datasuhutanah }}</td>
+                                    <td>{{ $dataiot->statusalat }}</td>
+                                    <td>{{ $dataiot->tanggal }}</td>
+                                </tr>
+                            @endforeach --}}
+                        </tbody>
+
+                    </table>
+                </div>
+
+                <div>
+                </div>
+            </div>
+        </div> -->
 </div>
 
 

@@ -4,35 +4,59 @@ namespace App\Http\Controllers;
 
 use App\Models\Lokasisawah;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class InfoController extends Controller
 {
-    // menampilkan perkiraan cuaca pada halaman DASHBOARD
-    public function showperkiraancuaca()
+    // menampilkan perkiraan cuaca dan sensor iot pada dashboard
+    public function showSensorIotdanCuaca()
     {
+        // get data perkiraan cuaca
         $user_id = auth()->user()->id;
         $lokasisawahs = Lokasisawah::where('user_id', $user_id)
             ->join('kabupatens', 'kabupatens.id', '=', 'lokasisawahs.kabupaten_id')
             ->select('lokasisawahs.*', 'kabupatens.kabupaten_nama', 'kabupatens.kabupaten_kode')
             ->get();
+        
+        // get data sensor iot
+        $iot_id = Lokasisawah::where('user_id', $user_id)
+            // ->where('lokasisawah_status', 0)
+            ->value('iot_id');
 
-        // return dd($lokasisawahs);
-        return view('pages.dashboard', compact('lokasisawahs'));
+        $url = "http://34.142.156.17:900/api/get/dataiot/$iot_id";
+
+        $response = Http::get($url);
+        $dataiot = $response->json();
+
+        // return dd($lokasisawahs, $dataiot);
+
+        return view('pages.dashboard', compact('lokasisawahs', 'dataiot'));
     }
-
-    // menampilkan perkiraan cuaca pada halaman PAGES.IOT.PERKIRAANCUACA
-    public function viewperkiraancuaca()
+    
+    // menampilkan perkiraan cuaca dan sensor iot pada menu IoT
+    public function viewiotdancuaca()
     {
         $user_id = auth()->user()->id;
         $lokasisawahs = Lokasisawah::where('user_id', $user_id)->first();
         if (!$lokasisawahs) {
             return view('/pages/respon/responlokasisawah');
         } else {
+            // get perkiraan cuaca
             $lokasisawahs = Lokasisawah::where('user_id', $user_id)
                 ->join('kabupatens', 'kabupatens.id', '=', 'lokasisawahs.kabupaten_id')
                 ->select('lokasisawahs.*', 'kabupatens.kabupaten_nama', 'kabupatens.kabupaten_kode')
                 ->get();
-            return view('pages.iot.viewperkiraancuaca', compact('lokasisawahs'));
+
+            // get data sensor iot
+            $iot_id = Lokasisawah::where('user_id', $user_id)
+                ->value('iot_id');
+
+            $url = "http://34.142.156.17:900/api/get/dataiot/$iot_id";
+
+            $response = Http::get($url);
+            $dataiot = $response->json();
+
+            return view('pages.iot.viewiotdancuaca', compact('lokasisawahs', 'dataiot'));
         }
     }
 

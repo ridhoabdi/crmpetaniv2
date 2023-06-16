@@ -33,7 +33,7 @@
     <ul class="list-group mt-3">
         <div class="card-header">
             <p class="">Silahkan tambahkan data panen berdasarkan kegiatan penanaman bawang yang telah dilakukan. Berikut adalah langkah-langkah yang dilakukan untuk mengisi data panen:</p>
-            <p>1. Pilih <i class="menu-icon mdi mdi-plus btn-outline-success mx-1"></i> untuk menambahkan hasil panen<br> 2. Pilih <i class="menu-icon mdi mdi-pencil btn-outline-warning mx-1"></i> jika ingin mengedit hasil panen<br>
+            <p>1. Pilih <i class="menu-icon mdi mdi-plus btn-outline-success mx-1"></i> untuk menambahkan hasil panen<br> 2. Pilih <i class="menu-icon mdi mdi-pencil btn-outline-warning mx-1"></i> untuk mengedit hasil panen<br> 2. Pilih <i class="menu-icon mdi mdi-database btn-outline-primary mx-1"></i> untuk melakukan backup data
             </p>
         </div>
         @foreach ($panens as $panen)

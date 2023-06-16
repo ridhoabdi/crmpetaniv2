@@ -31,14 +31,21 @@ Route::get('/', function () {
 //     return view('pages.dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/dashboard', [InfoController::class, 'showperkiraancuaca'])
+Route::get('/dashboard', [InfoController::class, 'showSensorIotdanCuaca'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    // data diri petani
+    Route::get('/viewprofilpetani', [ProfileController::class, 'index'])->name('viewprofilpetani');
+    Route::get('/editprofilpetani/{id}', [ProfileController::class, 'edit'])->name('editprofilpetani');
+    Route::put('/updateprofilpetani/{id}', [ProfileController::class, 'update'])->name('updateprofilpetani');
+
+
     
     // Lokasi sawah
     Route::get('/viewlokasisawah', [LokasisawahController::class, 'index'])->name('viewlokasisawah');
@@ -49,7 +56,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/deletelokasisawah/{id}', [LokasisawahController::class, 'destroy']);
 
     // IoT
-    Route::get('/viewperkiraancuaca', [InfoController::class, 'viewperkiraancuaca'])->name('viewperkiraancuaca');
+    Route::get('/viewiotdancuaca', [InfoController::class, 'viewiotdancuaca'])->name('viewiotdancuaca');
 
     // Kegiatan sawah
     Route::get('/viewkegiatansawah', [KegiatansawahController::class, 'index'])->name('viewkegiatansawah');
