@@ -15,7 +15,7 @@
     <div class="row align-items-center min-vh-75 min-vh-lg-100">
       <div class="col-md-7 col-lg-6 col-xxl-5 py-6 text-sm-start text-center">
         <h1 class="mt-6 mb-sm-4 fw-semi-bold lh-sm fs-4 fs-lg-5 fs-xl-6">CRM Petani</h1>
-        <p class="mb-4 fs-1">Program ini adalah prototype hasil Tugas Akhir yang berjudul "Perancangan Aplikasi Petani untuk Pengelolaan Data Bawang Merah menggunakan PostgreSQL"</p>
+        <p class="mb-4 fs-1">Program ini adalah prototype hasil Tugas Akhir yang berjudul "Perancangan Aplikasi Petani untuk Pengelolaan Data Bawang Merah dengan Metode Rapid Application Development"</p>
         <p class="mb-4 fs-1">Peneliti : Muhammad Ridho Abdillah - A11.2019.12211 <br> Dosen Pembimbing : Dr. Farrikh Alzami M.Kom</p>
         <p class="mb-4 fs-1">Program Hibah : Penyelarasan Rantai Pasok dan Customer Relationship Management pada Komoditi Bawang Merah menggunakan Artificial Intelligent berbasis Internet of Things dan Blockchain, No. 176/E1/KS.06.02/2022</p>
         <a class="btn btn-lg btn-success" href="{{ route('register') }}" role="button">Gabung Sekarang</a>
