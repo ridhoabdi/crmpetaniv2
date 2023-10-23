@@ -73,21 +73,24 @@ CRM for Red Onion Farmers application is a specialized software solution designe
 
 ## Spesification
 
-- Programming Language : PHP, Javascript
-- Framework : Bootstrap, Laravel
-- Database : PostgreSQL
-- API Testing : Postman
-- Deployment : Google Cloud Platform
+- **Programming Language :** PHP, Javascript
+- **Framework :** Bootstrap, Laravel
+- **Database :** PostgreSQL
+- **API Testing :** Postman
+- **Deployment :** Google Cloud Platform
 
 ## App Features
 
-1. Farmland Location : Farmers input the location based on the actual onion field location.
-2. IoT Sensor : This feature is used to display IoT sensor data for real-time monitoring of the red onion farming land conditions.
-3. Onion Planting Activity : This feature is used for the red onion farming process, starting from planting the onion seedlings.
-4. Pesticides and Fertilizer Schedule : Farmers can regularly apply pesticides and fertilizers during the red onion farming activities.
-5. Harvest Yield : Farmers confirm the harvest yield from the red onion cultivation to be sold to the buyers.
-6. Harvest History : This feature is used to view the detailed history of harvests, from onion planting to yield. The harvest history data can be
+1. **Farmland Location :** Farmers input the location based on the actual onion field location.
+2. **IoT Sensor :** This feature is used to display IoT sensor data for real-time monitoring of the red onion farming land conditions.
+3. **Onion Planting Activity :** This feature is used for the red onion farming process, starting from planting the onion seedlings.
+4. **Pesticides and Fertilizer Schedule :** Farmers can regularly apply pesticides and fertilizers during the red onion farming activities.
+5. **Harvest Yield :** Farmers confirm the harvest yield from the red onion cultivation to be sold to the buyers.
+6. **Harvest History :** This feature is used to view the detailed history of harvests, from onion planting to yield. The harvest history data can be
 downloaded in PDF format.
+
+## Example Screenshot
+
 
 ## Access 
 
