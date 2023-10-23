@@ -26,4 +26,4 @@ downloaded in PDF format.
 <img src="https://github.com/ridhoabdi/portfolio/blob/main/images/readme-each-repository/crm-app-for-red-onion-farmer/CRM-Petani-Dashboard-Page.png" width="700" alt="Dashboard CRM App">
 
 ## Application Access 
-This application has been designed to be accessible. Here are the [link](http://34.142.156.17:913/) that can be used
+Here are the [link](http://34.142.156.17:913/) that can be used
