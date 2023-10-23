@@ -64,3 +64,9 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+# CRM App for Red Onion Farmers
+
+## Description
+
+CRM for Red Onion Farmers application is a specialized software solution designed to assist red onion farmers in managing red onion farming data from planting to harvest. This application is built using the Laravel framework.
