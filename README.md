@@ -70,3 +70,11 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 ## Description
 
 CRM for Red Onion Farmers application is a specialized software solution designed to assist red onion farmers in managing red onion farming data from planting to harvest. This application is built using the Laravel framework.
+
+## Spesification
+
+- Programming Language : PHP, Javascript
+- Framework : Bootstrap, Laravel
+- Database : PostgreSQL
+- API Testing : Postman
+- Deployment : Google Cloud Platform
