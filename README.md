@@ -27,4 +27,3 @@ downloaded in PDF format.
 
 ## Application Access 
 This application has been designed to be accessible. Here are the [link](http://34.142.156.17:913/) that can be used
-<a href="http://34.142.156.17:913/" target="_blank">link</a>
