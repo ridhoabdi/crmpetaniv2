@@ -22,7 +22,7 @@ CRM for Red Onion Farmers application is a specialized software solution designe
 6. **Harvest History :** This feature is used to view the detailed history of harvests, from onion planting to yield. The harvest history data can be
 downloaded in PDF format.
 
-## Example Screenshot
+## Screenshot
 <img src="https://github.com/ridhoabdi/portfolio/blob/main/images/readme-each-repository/crm-app-for-red-onion-farmer/CRM-Petani-Dashboard-Page.png" width="700" alt="Dashboard CRM App">
 
 ## Application Access 
